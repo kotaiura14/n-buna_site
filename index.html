@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,10 +31,20 @@
     <section class="sec-02">
         <div class="container">
             <h3 class="section-title">ボカロ曲</h3>
-            <div class="content">
-                <div class="image">
-                    <img src="./images/vocaloid.jpg" alt="Vocaloid Songs">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <img src="./images/meryu.jpeg" style="width:100%">
                 </div>
+                <div class="mySlides fade">
+                    <img src="./images/toumei.jpeg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="./images/umiyuri.jpeg" style="width:100%">
+                </div>
+                <div class="mySlides fade">
+                    <img src="./images/yoake.jpg" style="width:100%">
+                </div>
+            </div>
                 <div class="info">
                     <h4 class="info-title">代表曲リスト</h4>
                     <p>
@@ -162,26 +172,6 @@
     </section>
 
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        ScrollReveal({
-            reset: true,
-            distance: '60px',
-            duration: 2000,
-            delay: 200
-        });
-
-        ScrollReveal().reveal('.main-title, .section-title', {
-            delay: 200,
-            origin: 'left'
-        });
-        ScrollReveal().reveal('.sec-01 .image, .sec-02 .image, .sec-03 .image, .sec-04 .image, .sec-05 .image, .sec-06 .image', {
-            delay: 500,
-            origin: 'top'
-        });
-        ScrollReveal().reveal('.text-box, .info', {
-            delay: 600,
-            origin: 'bottom'
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
