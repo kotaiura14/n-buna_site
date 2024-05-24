@@ -4,14 +4,13 @@
 body {
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
-    background-color: #a8dadc; /* 水色の背景色 */
-    color: #ffffff; /* 白いテキスト色 */
-    margin: 0;
+    background-color: #a8dadc; 
+    color: #333333; 
     padding: 0;
 }
 
 header {
-    background: #457b9d; /* ダークティール */
+    background: #457b9d; 
     color: #ffffff;
     padding: 1rem 0;
 }
@@ -37,7 +36,7 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a.active {
-    background: #1d3557; /* ホバー時の濃いティール */
+    background: #1d3557;
 }
 
 .container {
@@ -50,17 +49,12 @@ nav ul li a:hover, nav ul li a.active {
 .main-title, .section-title {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: #ffffff; /* 白いタイトル */
+    font-size: 2rem;
+    color: #333333; 
 }
 
 .content-section {
     padding: 3rem 0;
-    display: none;
-}
-
-.content-section.active {
-    display: block;
 }
 
 .content {
@@ -72,9 +66,15 @@ nav ul li a:hover, nav ul li a.active {
 
 .image img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vocaloid-image {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
 }
 
 .text-box, .info {
@@ -83,14 +83,14 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .text-box h3, .info h4 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
-    color: #ffffff; /* 白い見出し */
+    color: #333333; 
 }
 
 .text-box p, .info p {
     font-size: 1rem;
-    color: #ffffff; /* 白いテキスト */
+    color: #333333; 
     line-height: 1.5;
 }
 
@@ -101,8 +101,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .album img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-right: 1rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -129,9 +129,10 @@ nav ul li a:hover, nav ul li a.active {
 
 /* スライドショーのスタイル */
 .slideshow-container {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .mySlides {
