@@ -1,11 +1,17 @@
+/* Google Fonts のインポート */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
+    background-color: #a8dadc; 
+    color: #333333; 
+    padding: 0;
 }
 
 header {
-    background: #333;
-    color: #fff;
+    background: #457b9d; 
+    color: #ffffff;
     padding: 1rem 0;
 }
 
@@ -13,6 +19,8 @@ nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav ul li {
@@ -20,7 +28,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
@@ -28,7 +36,7 @@ nav ul li a {
 }
 
 nav ul li a:hover, nav ul li a.active {
-    background: #555;
+    background: #1d3557;
 }
 
 .container {
@@ -41,17 +49,12 @@ nav ul li a:hover, nav ul li a.active {
 .main-title, .section-title {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: #333;
+    font-size: 2rem;
+    color: #333333; 
 }
 
 .content-section {
     padding: 3rem 0;
-    display: none;
-}
-
-.content-section.active {
-    display: block;
 }
 
 .content {
@@ -63,9 +66,15 @@ nav ul li a:hover, nav ul li a.active {
 
 .image img {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.vocaloid-image {
+    width: 200px; 
+    height: 200px;
+    object-fit: cover;
 }
 
 .text-box, .info {
@@ -74,13 +83,14 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .text-box h3, .info h4 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 1rem;
+    color: #333333; 
 }
 
 .text-box p, .info p {
     font-size: 1rem;
-    color: #666;
+    color: #333333; 
     line-height: 1.5;
 }
 
@@ -91,8 +101,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .album img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin-right: 1rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -115,4 +125,26 @@ nav ul li a:hover, nav ul li a.active {
     .album img {
         margin-bottom: 1rem;
     }
+}
+
+/* スライドショーのスタイル */
+.slideshow-container {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mySlides {
+    display: none;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from { opacity: .4; }
+    to { opacity: 1; }
 }
