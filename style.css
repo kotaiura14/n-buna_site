@@ -1,18 +1,26 @@
 /* Google Fonts のインポート */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
+/* カラーパレット */
+:root {
+    --main-color: #a8dadc; 
+    --base-color: #333333; 
+    --accent-color: #457b9d; 
+}
+
 /* ページ全体のスタイル */
 body {
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
-    background-color: #a8dadc; 
-    color: #333333; 
+    background-color: var(--main-color); /* メインカラー */
+    color: var(--base-color); /* ベースカラー */
     padding: 0;
+    font-size: 16px; /* 一般的なウェブサイトの文字サイズに倣う */
 }
 
 /* ヘッダー */
 header {
-    background: #457b9d; 
+    background: var(--accent-color); /* アクセントカラー */
     color: #ffffff;
     padding: 1rem 0;
 }
@@ -54,8 +62,8 @@ nav ul li a:hover, nav ul li a.active {
 .main-title, .section-title {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #333333; 
+    font-size: 2rem; /* 大見出し */
+    color: var(--base-color); /* ベースカラー */
 }
 
 /* コンテンツセクション */
@@ -90,14 +98,14 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .text-box h3, .info h4 {
-    font-size: 1.6rem;
+    font-size: 1.4rem; /* 中見出し */
     margin-bottom: 1rem;
-    color: #333333; 
+    color: var(--base-color); /* ベースカラー */
 }
 
 .text-box p, .info p {
-    font-size: 1rem;
-    color: #333333; 
+    font-size: 1rem; /* 本文 */
+    color: var(--base-color); /* ベースカラー */
     line-height: 1.5;
 }
 
@@ -170,8 +178,8 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .loader {
-    border: 6px solid #f3f3f3;
-    border-top: 6px solid #3498db;
+    border: 6px solid var(--main-color); /* メインカラー */
+    border-top: 6px solid var(--accent-color); /* アクセントカラー */
     border-radius: 50%;
     width: 50px;
     height: 50px;
