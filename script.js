@@ -65,3 +65,16 @@ function showSlides() {
     slides[slideIndex-1].style.display = "block";  
     setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
+
+//各ページ推移
+function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+/*ローディング画面*/
+window.addEventListener('load', function() {
+    var loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.style.display = 'none';
+});

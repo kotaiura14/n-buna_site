@@ -9,24 +9,29 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    
     <header>
         <nav>
             <ul>
-                <li><a href="#n-buna" id="n-buna-tab">n-buna</a></li>
-                <li><a href="#yorushika" id="yorushika-tab">ヨルシカ</a></li>
+                <li><a href="#n-buna" id="n-buna-tab" onclick="scrollToSection('n-buna-section')">n-buna</a></li>
+                <li><a href="#yorushika" id="yorushika-tab" onclick="scrollToSection('yorushika-section')">ヨルシカ</a></li>
+                
             </ul>
         </nav>
     </header>
     <main>
         <section id="n-buna-section" class="content-section">
             <div class="container">
-                <h2 class="main-title">n-buna</h2>
+                <h1 class="main-title">n-buna</h1>
                 <div class="content">
                     <div class="image">
                         <img src="./images/n-buna.jpg" alt="n-buna">
                     </div>
                     <div class="text-box">
-                        <h3>n-buna</h3>
+                        <h2>n-buna</h2>
                         <p>n-bunaは日本の音楽プロデューサー、作詞家、作曲家です。彼はボカロPとしても知られており、感情豊かなメロディーと繊細な歌詞で多くのファンを魅了しています。</p>
                     </div>
                 </div>
