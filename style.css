@@ -1,232 +1,310 @@
-
 /* Google Fonts のインポート */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 /* カラーパレット */
 :root {
-    --main-color: #a8dadc;
-    --base-color: #333333;
-    --accent-color: #457b9d;
+    --main-color: #a8dadc; /* メインカラー */
+    --base-color: #333333; /* ベースカラー */
+    --accent-color: #457b9d; /* アクセントカラー */
 }
 
 /* ページ全体のスタイル */
 body {
-    font-family: 'Noto Sans JP', sans-serif;
-    line-height: 1.6;
-    background-color: var(--main-color);
-    color: var(--base-color);
-    padding: 0;
-    font-size: 16px;
+    font-family: 'Noto Sans JP', sans-serif; /* フォントファミリー */
+    line-height: 1.6; /* 行の高さ */
+    background-color: var(--main-color); /* 背景色 */
+    color: var(--base-color); /* テキストカラー */
+    padding: 0; /* 余白 */
+    font-size: 16px; /* フォントサイズ */
 }
+
+.site-title {
+    text-align: left;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #ccc; /* 線のスタイル */
+/* 上下の余白を少なめに */
+    margin-top: 0;
+    margin-bottom: 20px;    
+    width: 100%;
+    box-sizing: border-box;
+
+}
+
+
 
 /* ヘッダー */
 header {
-    background: var(--accent-color);
-    color: #ffffff;
-    padding: 1rem 0;
+    background: var(--accent-color); /* 背景色 */
+    color: #ffffff; /* テキストカラー */
+    padding: 1rem 0; /* 余白 */
 }
 
 /* ナビゲーション */
 nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex; /* フレックスボックス */
+    justify-content: center; /* 中央揃え */
+    list-style: none; /* リストスタイルの削除 */
+    padding: 0; /* 余白 */
+    margin: 0; /* 余白 */
 }
 
 nav ul li {
-    margin: 0 1rem;
+    margin: 0 1rem; /* 余白 */
 }
 
 nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    color: #ffffff; /* テキストカラー */
+    text-decoration: none; /* テキスト装飾の削除 */
+    font-size: 1.2rem; /* フォントサイズ */
+    padding: 0.5rem 1rem; /* 余白 */
+    border-radius: 5px; /* ボーダーの角丸 */
 }
 
 nav ul li a:hover,
 nav ul li a.active {
-    background: #1d3557;
+    background: #1d3557; /* 背景色 */
 }
 
 /* コンテナ */
 .container {
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
+    max-width: 1200px; /* 最大幅 */
+    margin: auto; /* 中央揃え */
+    overflow: hidden; /* オーバーフローの制御 */
+    padding: 0 2rem; /* 余白 */
 }
 
 /* タイトル */
 .main-title,
 .section-title {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    color: var(--base-color);
+    text-align: center; /* 中央揃え */
+    margin-bottom: 2rem; /* 余白 */
+    font-size: 2rem; /* フォントサイズ */
+    color: var(--base-color); /* テキストカラー */
 }
 
 /* コンテンツセクション */
 .content-section {
-    padding: 3rem 0;
+    padding: 3rem 0; /* 余白 */
 }
 
 /* コンテンツ */
 .content {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex; /* フレックスボックス */
+    justify-content: space-around; /* 等間隔配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    flex-wrap: wrap; /* 折り返し */
 }
 
 .image img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%; /* 幅 */
+    max-width: 400px; /* 最大幅 */
+    border-radius: 10px; /* ボーダーの角丸 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
 }
 
 .vocaloid-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
+    width: 200px; /* 幅 */
+    height: 200px; /* 高さ */
+    object-fit: cover; /* オブジェクトのサイズ調整 */
 }
 
 .vocaloid-image:active {
-    transform: scale(0.95);
-    transition: transform 0.1s;
+    transform: scale(0.95); /* スケール変換 */
+    transition: transform 0.1s; /* トランジション */
 }
 
 .vocaloid-image:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s;
+    transform: scale(1.05); /* スケール変換 */
+    transition: transform 0.3s; /* トランジション */
 }
 
 .text-box,
 .info {
-    flex: 1;
-    margin: 1rem;
+    flex: 1; /* フレックスアイテムの伸縮 */
+    margin: 1rem; /* 余白 */
 }
 
 .text-box h3,
 .info h4 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: var(--base-color);
+    font-size: 1.4rem; /* フォントサイズ */
+    margin-bottom: 1rem; /* 余白 */
+    color: var(--base-color); /* テキストカラー */
 }
 
 .text-box p,
 .info p {
-    font-size: 1rem;
-    color: var(--base-color);
-    line-height: 1.5;
+    font-size: 1rem; /* フォントサイズ */
+    color: var(--base-color); /* テキストカラー */
+    line-height: 1.5; /* 行の高さ */
 }
 
 .album {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
+    display: flex; /* フレックスボックス */
+    align-items: center; /* 垂直方向の中央揃え */
+    margin-bottom: 2rem; /* 余白 */
 }
 
 .album img {
-    width: 200px;
-    height: 200px;
-    margin-right: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 200px; /* 幅 */
+    height: 200px; /* 高さ */
+    margin-right: 1rem; /* 余白 */
+    border-radius: 10px; /* ボーダーの角丸 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ボックスシャドウ */
 }
 
 @media (max-width: 768px) {
     .content {
-        flex-direction: column;
+        flex-direction: column; /* カラム方向に配置 */
     }
 
     .image img {
-        max-width: 100%;
+        max-width: 100%; /* 最大幅 */
     }
 
     .album {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: column; /* カラム方向に配置 */
+        align-items: flex-start; /* 左揃え */
     }
 
     .album img {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem; /* 余白 */
     }
 }
 
 /* スライドショー */
 .slideshow-container {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 10px;
+    width: 100%; /* 幅 */
+    max-width: 500px; /* 最大幅 */
+    border-radius: 10px; /* ボーダーの角丸 */
 }
 
 .mySlides {
-    display: none;
+    display: none; /* 非表示 */
 }
 
 .fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
+    animation-name: fade; /* アニメーション名 */
+    animation-duration: 1.5s; /* アニメーションの時間 */
 }
 
 @keyframes fade {
     from {
-        opacity: .4;
+        opacity: .4; /* 透明度 */
     }
 
     to {
-        opacity: 1;
+        opacity: 1; /* 透明度 */
     }
 }
 
 /* ローディング画面 */
 #loading-screen {
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed; /* 固定位置 */
+    z-index: 9999; /* Zインデックス */
+    top: 0; /* 上からの位置 */
+    left: 0; /* 左からの位置 */
+    width: 100%; /* 幅 */
+    height: 100%; /* 高さ */
+    background-color: rgba(0, 0, 0, 0.8); /* 背景色 */
+    display: flex; /* フレックスボックス */
+    justify-content: center; /* 中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
 }
 
 .loader {
-    border: 6px solid var(--main-color);
-    border-top: 6px solid var(--accent-color);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
+    border: 6px solid var(--main-color); /* ボーダー */
+    border-top: 6px solid var(--accent-color); /* ボーダー */
+    border-radius: 50%; /* ボーダーの角丸 */
+    width: 50px; /* 幅 */
+    height: 50px; /* 高さ */
+    animation: spin 1s linear infinite; /* アニメーション */
 }
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* 回転 */
     }
 
     100% {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* 回転 */
     }
 }
 
-/* ページ遷移エフェクト */
-#fade-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    opacity: 0;
-    transition: opacity 0.5s;
-    pointer-events: none;
-    z-index: 9999;
+#fade-effect {
+    position: fixed; /* 固定位置 */
+    top: 0; /* 上からの位置 */
+    left: 0; /* 左からの位置 */
+    width: 100%; /* 幅 */
+    height: 100%; /* 高さ */
+    background-color: white; /* 背景色 */
+    opacity: 1; /* 透明度 */
+    transition: opacity 2.0s; /* トランジション */
+    z-index: 9999; /* Zインデックス */
+    display: none; /* 非表示 */
+}
+
+/* セクションごとのスタイル */
+.n-buna_pre-section {
+    display: none; /* 最初は非表示 */
+}
+
+.n-buna-section {
+    display: none; /* 最初は非表示 */
+}
+
+.n-buna_album-section {
+    display: none; /* 最初は非表示 */
+}
+
+.yorushika-section {
+    display: none; /* 最初は非表示 */
+}
+
+.yorushika_pre-section {
+    display: none; /* 最初は非表示 */
+}
+
+.yorushika_album-section{
+    display: none; /* 最初は非表示 */
+}
+
+/* 表示されるセクションのスタイル */
+.n-buna_pre-section.visible {
+    display: block;
+}
+
+.n-buna-section.visible {
+    display: block;
+}
+
+.n-buna_album-section.visible {
+    display: block;
+}
+
+.yorushika-section.visible {
+    display: block;
+}
+
+.yorushika_pre-section.visible {
+    display: block;
+}
+
+.yorushika_album-section.visible {
+    display: block;
+} 
+
+/* footer横書きで縦の箇条書きで */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 1rem 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }

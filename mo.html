@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n-buna兼ヨルシカの経歴</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: left;
+        }
+        ul li {
+            background: #ecf0f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        ul li:hover {
+            background: #bdc3c7;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .buttons {
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .buttons button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>n-buna兼ヨルシカの経歴</h1>
+        <div class="buttons">
+            <button onclick="showSection('nbuna')">n-buna</button>
+            <button onclick="showSection('yorushika')">ヨルシカ</button>
+        </div>
+        
+        <div id="nbuna" class="section active">
+            <h2>n-buna</h2>
+            <ul>
+                <li>1995年8月30日 - n-buna（本名：出羽良彰）生まれる。</li>
+                <li>2012年 - ボーカロイドを使用した楽曲「透明エレジー」を発表し、注目を集める。</li>
+                <li>2013年 - ボーカロイド楽曲「桜の雨、いつか」で人気を拡大。</li>
+                <li>2014年 - 初のソロアルバム「花と水飴、最終電車」をリリース。</li>
+                <li>2015年 - アルバム「月を歩いている」をリリースし、ソロ活動を続ける。</li>
+                <li>2016年 - コンセプトアルバム「道化師のパレード」をリリース。</li>
+            </ul>
+        </div>
+        
+        <div id="yorushika" class="section">
+            <h2>ヨルシカ</h2>
+            <ul>
+                <li>2017年 - 女性ボーカリストsuisと共にヨルシカを結成。</li>
+                <li>2017年 - ヨルシカとして初のミニアルバム「夏草が邪魔をする」をリリース。</li>
+                <li>2018年 - フルアルバム「だから僕は音楽を辞めた」を発表し、商業的な成功を収める。アルバムは文学的な歌詞とエモーショナルなメロディーが特徴。</li>
+                <li>2019年 - アルバム「エルマ」をリリース。物語性の強い楽曲でファンを魅了する。</li>
+                <li>2020年 - アルバム「盗作」をリリース。音楽とアートの融合をテーマにした作品が話題に。</li>
+                <li>2021年以降 - ヨルシカとして国内外でのライブ活動を行い、ますますの人気を博す。</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('nbuna').classList.remove('active');
+            document.getElementById('yorushika').classList.remove('active');
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

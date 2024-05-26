@@ -28,32 +28,61 @@ document.addEventListener('DOMContentLoaded', function() {
     const yorushikaTab = document.getElementById('yorushika-tab');
     const nBunaSection = document.getElementById('n-buna-section');
     const yorushikaSection = document.getElementById('yorushika-section');
+    const yorushika_album = document.getElementById('yorushika_album-section');
+    const nBuna_album = document.getElementById('n-buna_album-section');
+    const yorushika_pre = document.getElementById('yorushika_pre-section');
+    const nBuna_pre = document.getElementById('n-buna_pre-section');
 
-    nBunaTab.addEventListener('click', function() {
-        yorushikaSection.classList.add('hidden');
-        nBunaSection.classList.remove('hidden');
+    nBunaTab.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        nBunaSection.scrollIntoView({ behavior: 'smooth' });
         nBunaTab.classList.add('active');
         yorushikaTab.classList.remove('active');
-        ScrollReveal().reveal('#n-buna-section .content', {
-            delay: 200,
-            origin: 'left'
-        });
     });
 
-    yorushikaTab.addEventListener('click', function() {
-        nBunaSection.classList.add('hidden');
-        yorushikaSection.classList.remove('hidden');
+    yorushikaTab.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        yorushikaSection.scrollIntoView({ behavior: 'smooth' });
         yorushikaTab.classList.add('active');
         nBunaTab.classList.remove('active');
-        ScrollReveal().reveal('#yorushika-section .content', {
-            delay: 200,
-            origin: 'left'
-        });
     });
 
-    // 初期状態
-    nBunaTab.click();
+    yorushika_album.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        yorushika_album.scrollIntoView({ behavior: 'smooth' });
+        yorushikaTab.classList.add('active');
+        nBunaTab.classList.remove('active');
+    });
+
+    nBuna_album.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        nBuna_album.scrollIntoView({ behavior: 'smooth' });
+        nBunaTab.classList.add('active');
+        yorushikaTab.classList.remove('active');
+    });
+
+    yorushika_pre.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        yorushika_pre.scrollIntoView({ behavior: 'smooth' });
+        yorushikaTab.classList.add('active');
+        nBunaTab.classList.remove('active');
+    });
+
+    nBuna_pre.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        nBuna_pre.scrollIntoView({ behavior: 'smooth' });
+        nBunaTab.classList.add('active');
+        yorushikaTab.classList.remove('active');
+    });
 });
+
+
 
 ScrollReveal({
     reset: true,
@@ -82,3 +111,5 @@ window.addEventListener('load', function() {
     var loadingScreen = document.getElementById('loading-screen');
     loadingScreen.style.display = 'none';
 });
+
+
