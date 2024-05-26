@@ -1,3 +1,28 @@
+// スライドショー
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let slides = document.getElementsByClassName("mySlides");
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }    
+    slides[slideIndex - 1].style.display = "block";  
+    setTimeout(showSlides, 3000); // 画像を3秒ごとに変更
+}
+
+// 各ページ推移
+function scrollToSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const nBunaTab = document.getElementById('n-buna-tab');
     const yorushikaTab = document.getElementById('yorushika-tab');
@@ -28,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 初期状態
     nBunaTab.click();
-    
 });
 
 ScrollReveal({
@@ -42,38 +66,18 @@ ScrollReveal().reveal('.main-title, .section-title', {
     delay: 200,
     origin: 'left'
 });
+
 ScrollReveal().reveal('.sec-01 .image, .sec-02 .image, .sec-03 .image, .sec-04 .image, .sec-05 .image, .sec-06 .image', {
     delay: 500,
     origin: 'top'
 });
+
 ScrollReveal().reveal('.text-box, .info', {
     delay: 600,
     origin: 'bottom'
 });
 
-// Slideshow
-let slideIndex = 0;
-showSlides();
-
-function showSlides() {
-    let slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";  
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {slideIndex = 1}    
-    slides[slideIndex-1].style.display = "block";  
-    setTimeout(showSlides, 3000); // Change image every 3 seconds
-}
-
-//各ページ推移
-function scrollToSection(sectionId) {
-    var section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-/*ローディング画面*/
+// ローディング画面
 window.addEventListener('load', function() {
     var loadingScreen = document.getElementById('loading-screen');
     loadingScreen.style.display = 'none';

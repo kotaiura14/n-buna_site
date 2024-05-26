@@ -1,26 +1,27 @@
+
 /* Google Fonts のインポート */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 /* カラーパレット */
 :root {
-    --main-color: #a8dadc; 
-    --base-color: #333333; 
-    --accent-color: #457b9d; 
+    --main-color: #a8dadc;
+    --base-color: #333333;
+    --accent-color: #457b9d;
 }
 
 /* ページ全体のスタイル */
 body {
     font-family: 'Noto Sans JP', sans-serif;
     line-height: 1.6;
-    background-color: var(--main-color); /* メインカラー */
-    color: var(--base-color); /* ベースカラー */
+    background-color: var(--main-color);
+    color: var(--base-color);
     padding: 0;
-    font-size: 16px; /* 一般的なウェブサイトの文字サイズに倣う */
+    font-size: 16px;
 }
 
 /* ヘッダー */
 header {
-    background: var(--accent-color); /* アクセントカラー */
+    background: var(--accent-color);
     color: #ffffff;
     padding: 1rem 0;
 }
@@ -46,7 +47,8 @@ nav ul li a {
     border-radius: 5px;
 }
 
-nav ul li a:hover, nav ul li a.active {
+nav ul li a:hover,
+nav ul li a.active {
     background: #1d3557;
 }
 
@@ -59,11 +61,12 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 /* タイトル */
-.main-title, .section-title {
+.main-title,
+.section-title {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2rem; /* 大見出し */
-    color: var(--base-color); /* ベースカラー */
+    font-size: 2rem;
+    color: var(--base-color);
 }
 
 /* コンテンツセクション */
@@ -87,25 +90,38 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .vocaloid-image {
-    width: 200px; 
+    width: 200px;
     height: 200px;
     object-fit: cover;
 }
 
-.text-box, .info {
+.vocaloid-image:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+.vocaloid-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.text-box,
+.info {
     flex: 1;
     margin: 1rem;
 }
 
-.text-box h3, .info h4 {
-    font-size: 1.4rem; /* 中見出し */
+.text-box h3,
+.info h4 {
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--base-color); /* ベースカラー */
+    color: var(--base-color);
 }
 
-.text-box p, .info p {
-    font-size: 1rem; /* 本文 */
-    color: var(--base-color); /* ベースカラー */
+.text-box p,
+.info p {
+    font-size: 1rem;
+    color: var(--base-color);
     line-height: 1.5;
 }
 
@@ -144,9 +160,9 @@ nav ul li a:hover, nav ul li a.active {
 
 /* スライドショー */
 .slideshow-container {
-    width: 100%; 
-    max-width: 500px; 
-    border-radius: 10px; 
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
 }
 
 .mySlides {
@@ -154,13 +170,18 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .fade {
-    animation-name: fade; 
-    animation-duration: 1.5s; 
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
 @keyframes fade {
-    from { opacity: .4; }
-    to { opacity: 1; }
+    from {
+        opacity: .4;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* ローディング画面 */
@@ -171,15 +192,15 @@ nav ul li a:hover, nav ul li a.active {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* 半透明の黒背景 */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .loader {
-    border: 6px solid var(--main-color); /* メインカラー */
-    border-top: 6px solid var(--accent-color); /* アクセントカラー */
+    border: 6px solid var(--main-color);
+    border-top: 6px solid var(--accent-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -187,6 +208,25 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ページ遷移エフェクト */
+#fade-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+    z-index: 9999;
 }
