@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('images/sho.jpg') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(8px); /* ぼかし効果を適用 */
+}
+
+.container {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.8); /* コンテンツの背景を半透明に */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.6s ease;
+}
+
+.container:hover {
+    transform: scale(1.01); /* ホバー時に少し拡大 */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 2em;
+    transition: all 0.3s ease;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.nav button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.nav button:hover {
+    background-color: #ddd;
+}
+
+.section {
+    display: none;
+    flex: 1;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+
+.section.active {
+    display: flex;
+    z-index: 1;
+    opacity: 1;
+}
+
+.artist-info,
+.songs-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    gap: 10px; /* 追加: コンテンツ間の間隔を狭める */
+}
+
+.artist-image,
+.songs-slideshow {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px; /* 変更: 右のマージンを小さくする */
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.song-description {
+    flex: 1;
+    text-align: left;
+    min-width: 200px;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.eraser-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 1);
+    z-index: 2;
+    display: none;
+}
+
+.erasing {
+    display: block;
+    animation: erasePage 4s forwards;
+}
+
+@keyframes erasePage {
+    0% {
+        width: 0;
+        height: 100%;
+    }
+    100% {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>n-buna & ヨルシカ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('images/sho.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            overflow: auto;
+            transition: transform 2s ease;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            font-size: 2em;
+            transition: all 0.3s ease;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #000;
+            margin-bottom: 20px;
+        }
+        .nav button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .nav button:hover {
+            background-color: #ddd;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .artist-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .artist-image {
+            width: 300px;
+            height: 300px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-right: 20px;
+        }
+        .artist-description {
+            flex: 1;
+            text-align: left;
+            min-width: 200px;
+        }
+        .toggle-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ddd;
+            cursor: pointer;
+        }
+        .turn-page {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script>
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(function(sec) {
+                sec.classList.remove('active');
+            });
+            document.getElementById(section).classList.add('active');
+        }
+
+        function toggleInfo() {
+            let artistName = document.getElementById('artist-name');
+            let artistImage = document.getElementById('artist-image');
+            let artistDescription = document.getElementById('artist-description');
+            if (artistName.textContent === 'n-buna') {
+                artistName.textContent = 'ヨルシカ';
+                artistImage.style.backgroundImage = "url('images/yorushika.jpg')";
+                artistDescription.innerHTML = `
+                    <ul>
+                        <li>ヨルシカは日本のロックバンドで、2017年に結成されました。</li>
+                        <li>n-buna（ナブナ）が作曲、編曲、プロデュースを担当しています。</li>
+                        <li>ボーカルはsuisが担当しています。</li>
+                        <li>詩的で文学的な歌詞とメロディアスな楽曲が特徴です。</li>
+                        <li>代表曲には「ただ君に晴れ」、「花に亡霊」、「言って。」などがあります。</li>
+                    </ul>`;
+            } else {
+                artistName.textContent = 'n-buna';
+                artistImage.style.backgroundImage = "url('images/tako.jpg')";
+                artistDescription.innerHTML = `
+                    <ul>
+                        <li>n-buna（ナブナ）は日本の音楽プロデューサー、作曲家、編曲家です。</li>
+                        <li>ボーカロイドを使用した楽曲で知られています。</li>
+                        <li>代表曲には「夜明けと蛍」、「ウミユリ海底譚」、「透明エレジー」などがあります。</li>
+                        <li>ヨルシカのメインコンポーザーとしても活動しています。</li>
+                    </ul>`;
+            }
+        }
+
+        function turnPage() {
+            let container = document.querySelector('.container');
+            container.classList.add('turn-page');
+            setTimeout(() => {
+                container.classList.remove('turn-page');
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="artist-name">n-buna</h1>
+            <button class="toggle-button" onclick="toggleInfo(); turnPage();">切り替え</button>
+        </div>
+        <div class="nav">
+            <button onclick="showSection('artist'); turnPage();">Artist</button>
+            <button onclick="showSection('songs'); turnPage();">Songs</button>
+            <button onclick="showSection('albums'); turnPage();">Albums</button>
+        </div>
+        <div id="artist" class="section active">
+            <div class="artist-info">
+                <div class="artist-image" id="artist-image" style="background-image: url('images/tako.jpg');"></div>
+                <div class="artist-description" id="artist-description">
+                    <ul>
+                        <li>n-buna（ナブナ）は日本の音楽プロデューサー、作曲家、編曲家です。</li>
+                        <li>ボーカロイドを使用した楽曲で知られています。</li>
+                        <li>代表曲には「夜明けと蛍」、「ウミユリ海底譚」、「透明エレジー」などがあります。</li>
+                        <li>ヨルシカのメインコンポーザーとしても活動しています。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="songs" class="section">
+            <p>Songs list will be here</p>
+        </div>
+        <div id="albums" class="section">
+            <p>Albums list will be here</p>
+        </div>
+    </div>
+</body>
+</html>
