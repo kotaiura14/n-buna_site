@@ -97,4 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
     showSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.slides').addEventListener('click', toggleSlideshow);
 });
-A
+
+let images = [
+    'images/background/bremen.jpg',
+    'images/background/cloud.jpg',
+    'images/background/gran.jpg',
+    'images/background/laland.jpg',
+];
+let currentIndex = 0;
+
+function changeBackground() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.body.style.backgroundImage = `url(${images[currentIndex]})`;
+}
+
+setInterval(changeBackground, 10000); // 2秒ごとに画像を変更
