@@ -1,4 +1,3 @@
-/* その他のスタイルはそのまま */
 body {
     font-family: 'Times New Roman', serif;
     font-weight: 400;
@@ -9,9 +8,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('images/sho.jpg') no-repeat center center fixed;
+    background: url('images/background/sho.jpg') no-repeat center center fixed; /* 最初の画像を指定 */
     background-size: cover;
     backdrop-filter: blur(8px);
+    transition: background 1s ease;
 }
 
 .container {
@@ -172,4 +172,14 @@ body {
         width: 100%;
         height: 100%;
     }
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 1s ease-in;
 }
