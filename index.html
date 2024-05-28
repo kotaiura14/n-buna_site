@@ -2,195 +2,129 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>n-buna & ヨルシカ</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
-    
-    <header>
-        <div class="site-title">
-            <h1>n-buna & ヨルシカ</h1>
+    <div class="container" id="container">
+        <div class="header">
+            <h1 id="artist-name">n-buna</h1>
+            <button class="toggle-button" onclick="toggleInfo();">切り替え</button>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#n-buna" id="n-buna-tab" onclick="scrollToSection('n-buna-section')">n-buna</a></li>
-                <li><a href="#n-buna_pre-section" id="n-buna_pre-section-link" onclick="scrollToSection('n-buna_pre-section')">ボカロ曲</a></li>
-                <li><a href="#n-buna_album-section" id="n-buna_album-section-link" onclick="scrollToSection('n-buna_album-section')">n-bunaアルバム</a></li>
-                <li><a href="#yorushika" id="yorushika-tab" onclick="scrollToSection('yorushika-section')">ヨルシカ</a></li>
-                <li><a href="#yorushika_pre-section" id="yorushika_pre-section-link" onclick="scrollToSection('yorushika_pre-section')">ヨルシカ代表曲</a></li>
-                <li><a href="#yorushika_album-section" id="yorushika_album-section-link" onclick="scrollToSection('yorushika_album-section')">ヨルシカアルバム</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="n-buna-section" class="content-section">
-            <div class="container">
-                <h1 class="main-title">n-buna</h1>
-                <div class="content">
-                    <div class="image">
-                        <img src="./images/n-buna.jpg" alt="n-buna">
-                    </div>
-                    <div class="text-box">
-                        <h2>n-buna</h2>
-                        <p>n-bunaは日本の音楽プロデューサー、作詞家、作曲家です。彼はボカロPとしても知られており、感情豊かなメロディーと繊細な歌詞で多くのファンを魅了しています。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="n-buna_pre-section">
-            <div class="container">
-                <h3 class="section-title">ボカロ曲</h3>
-                <div class="slideshow-container">
-                    <div class="mySlides fade">
-                        <a href="./vocal_song/meryu.html">
-                            <img src="./images/pressongs/meryu.jpeg" class="vocaloid-image">
-                        </a>
-                    </div>
-                    <div class="mySlides fade">
-                        <a href="./vocal_song/yoake.html">
-                            <img src="./images/pressongs/yoake.jpeg" class="vocaloid-image">
-                        </a>
-                    </div>
-                    <div class="mySlides fade">
-                        <a href="./vocal_song/umiyuri.html">
-                            <img src="./images/pressongs/umiyuri.jpeg" class="vocaloid-image">
-                        </a>
-                    </div>
-                    <div class="mySlides fade">
-                        <a href="./vocal_song/toumei.html">
-                            <img src="./images/pressongs/toumei.jpeg" class="vocaloid-image">
-                        </a>
-                    </div>
-                    <div id="fade-effect"></div>
-                </div>
-                <div class="info">
-                    <h4 class="info-title">代表曲リスト</h4>
-                    <p><br>メリュー<br>夜明けと蛍<br>ウミユリ海底譚<br>透明エレジー</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="n-buna_album-section">
-            <div class="container">
-                <h3 class="section-title">n-buna アルバム</h3>
-                <div class="content">
-                    <div class="album">
-
-                        <img src="./images/vocaloalbum/hanato_mizuame.jpg" alt="花と水飴、最終電車">
-
-                        <div class="info">
-                            <h4 class="info-title">花と水飴、最終電車 (2014)</h4>
-                            <p>n-bunaのデビューアルバム。瑞々しい歌詞とメロディーが特徴です。郷愁を誘う楽曲が多く、聴く者の心を掴みます。代表曲には「花と水飴」、「最終電車」などがあります。</p>
-                        </div>
-                    </div>
-                    <div class="album">
-
-                        <img src="./images/vocaloalbum/tsuki_wo_aruiteiru.jpg" alt="月を歩いている">
-
-                        <div class="info">
-                            <h4 class="info-title">月を歩いている (2015)</h4>
-                            <p>夜の静寂や幻想的な雰囲気をテーマにしたアルバム。月明かりの下での散歩を思わせる美しいメロディーと詩が詰まっています。代表曲には「夜行」や「月の光」が含まれます。</p>
-                        </div>
-                    </div>
-                    <div class="album">
-
-                        <img src="./images/vocaloalbum/curtain_call.jpg" alt="カーテンコールが止む前に">
-
-                        <div class="info">
-                            <h4 class="info-title">カーテンコールが止む前に (2017)</h4>
-                            <p>演劇の幕が下りる前の感情を描いたアルバム。人生の一幕を終える瞬間の切なさや美しさを表現しています。代表曲には「カーテンコール」、「儚く散った花」があります。</p>
-                        </div>
+        <div class="nav">
+            <button onclick="showSection('artist');">Artist</button>
+            <button onclick="showSection('songs');">Songs</button>
+            <button onclick="showSection('albums');">Albums</button>
+        </div>
+        <div id="content">
+            <div id="artist" class="section active">
+                <div class="artist-info">
+                    <div class="artist-image" id="artist-image" style="background-image: url('images/artist/tako.jpg');"></div>
+                    <div class="artist-description" id="artist-description">
+                        <!-- n-bunaの情報 -->
+                        <ul id="n-buna-info">
+                            <li>n-buna（ナブナ）は日本のソングライター、編曲家、ボカロP、ギタリスト</li>
+                            <li>代表曲には「夜明けと蛍」、「ウミユリ海底譚」、「透明エレジー」などがあり、<br>これらの楽曲ニコニコ動画で殿堂入り、神話入りしている。</br></li>
+                            <li>感情豊かなメロディーと深い歌詞が特徴で、多くの人々の心に響いている。</li>
+                            <li>孤独や喪失、希望などのテーマを取り扱っており、リスナーに強い共感を呼び起こす。</li>
+                            <li>三月のパンタシアなど多くのアーティストに楽曲提供を行う</li>
+                            <h3>活動年表</h3>
+                            <ul>
+                                <li>2012年：音楽活動を開始</li>
+                                <li>2013年：初のボカロ楽曲アリストラストを発表</li>
+                                <li>2014年：「夜明けと蛍」がヒットし、注目を集める</li>
+                                <li>2014年：アルバム「カーテンコールが止む前に」をリリース</li>
+                                <li>2015年：アルバム「花と水飴、最終電車」をリリース</li>
+                                <li>2016年：アルバム「月を歩いている」をリリース、初のワンマンライブを行う</li>
+                            </ul>
+                        </ul>
+                        <!-- ヨルシカの情報 -->
+                        <ul id="yorushika-info" style="display: none;">
+                            <li>ヨルシカは日本のロックバンドで、2017年にn-buna（ナブナ）とボーカルのsuisによって結成されました。</li>
+                            <li>suisはバンドのボーカルを務め、その透き通るような声と表現力豊かな歌唱で多くのファンを魅了しています。</li>
+                            <li>ヨルシカの音楽は、詩的で文学的な歌詞とメロディアスな楽曲が特徴で、短期間で多くのファンを獲得しています。</li>
+                            <li>代表曲には「ただ君に晴れ」、「花に亡霊」、「言って。」などがあり、これらの楽曲は各種音楽チャートで上位にランクインしています。</li>
+                            <li>バンドの楽曲は、しばしば季節感や風景描写を重視し、リスナーに強い視覚的な印象を与えます。</li>
+                            <li>ヨルシカはまた、アルバムごとに一貫したテーマやストーリーを持たせることで知られ、その深い世界観が評価されています。</li>
+                            <li>活動年表：</li>
+                            <ul>
+                                <li>2017年：ヨルシカを結成</li>
+                                <li>2019年：アルバム「エルマ」をリリース</li>
+                                <li>2020年：アルバム「盗作」をリリース</li>
+                                <li>2021年：アルバム「創作」をリリース</li>
+                                <li>2022年：初の全国ツアーを成功裏に終了</li>
+                            </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="yorushika-section">
-            <div class="container">
-                <h3 class="section-title">ヨルシカ</h3>
-                <div class="content">
-                    <div class="image">
-                        <img src="./images/yorushika.jpg" alt="Yorushika">
+            <div id="songs" class="section">
+                <div class="songs-info">
+                    <div class="songs-slideshow">
+                        <div class="slides">
+                            <img src="images/pressongs/meryu.jpeg" alt="メリー" data-description='{
+                                "title": "メリュー",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "あわしま",
+                                "vocals": "初音ミク",
+                                "authorComment": "灯篭流しの唄",
+                                "siteComment": "友人の自殺を止められなかった自分の無力さを嘆く歌。ボーカロイド楽曲だが人が歌っていると錯覚するほど感情が伝わってくるのを感じます。個人的に拍手の拍の取り方がすごく好きです。",
+                                "releaseDate": "2016-04-27"
+                            }'>
+                            <img src="images/pressongs/aira.jpeg" alt="アイラ" data-description='{
+                                "title": "アイラ",
+                                "lyricist": "ナブナ",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "Aちき",
+                                "vocals": "GUMI（CD版はmiki）",
+                                "authorComment": "自己投影とロケット。",
+                                "siteComment": "いなくなってしまったアイラという少女に何も出来なかった後悔の歌。曲の進行とともに主人公に共感し、ラストの「アイラ」はは叫ばずにはいられません。イラストも相まって空虚な夏を感じられる素晴らしい曲です。",
+                                "releaseDate": "2014-12-14"
+                            }'>
+                            <img src="images/pressongs/umiyuri.jpeg" alt="ウミユリ海底譚" data-description='{
+                                "title": "ウミユリ海底譚",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "アマニ",
+                                "vocals": "初音ミク",
+                                "authorComment": "海の底で見つけた光。",
+                                "siteComment": "深海に沈む悲しみと再生の物語。メロディがとても美しいです。",
+                                "releaseDate": "2013-02-09"
+                            }'>
+                            <img src="images/pressongs/yoake.jpeg" alt="夜明けと蛍" data-description='{
+                                "title": "夜明けと蛍",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "No.734",
+                                "vocals": "初音ミク",
+                                "authorComment": "最高の夏にしよう2014冬。今年の夏曲はホタルです。間に合った。",
+                                "siteComment": "過去の痛みを乗り越え、新しい希望を見つける歌。",
+                                "releaseDate": "2014-08-15"
+                            }'>
+                        </div>
                     </div>
-                    <div class="text-box">
-                        <h3>ヨルシカ</h3>
-                        <p>ヨルシカはn-bunaとsuisによる音楽ユニットであり、感情豊かな楽曲と詩的な歌詞で知られています。彼らの音楽は多くのリスナーに愛されています。</p>
+                    <div class="song-description" id="song-description">
+                        <h2 id="song-title">代表曲の概要</h2>
+                        <p id="release-date"></p> <!-- ここに投稿日を追加 -->
+                        <p id="song-composer"></p>
+                        <p id="song-arranger"></p>
+                        <p id="song-illustration"></p>
+                        <p id="song-vocals"></p>
+                        <p id="author-comment"></p>
+                        <p id="site-comment"></p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section id="yorushika_pre-section">
-            <div class="container">
-                <h3 class="section-title">ヨルシカ 代表曲</h3>
-                <div class="content">
-                    <div class="image">
-                        <img src="./images/songs.jpg" alt="Songs">
-                    </div>
-                    <div class="info">
-                        <h4 class="info-title">代表曲リスト</h4>
-                        <p>・だから僕は音楽を辞めた<br>・春泥棒<br>・花に亡霊<br>・夜行<br>・言って。</p>
-                    </div>
-                </div>
+            
+            <div id="albums" class="section">
+                <p>Albums list will be here</p>
             </div>
-        </section>
-
-        <section id="yorushika_album-section">
-            <div class="container">
-                <h3 class="section-title">ヨルシカ アルバム</h3>
-                <div class="content">
-                    <div class="album">
-
-                        <img src="./images/yorushikaalbum/music_quit.jpg" alt="だから僕は音楽を辞めた">
-
-                        <div class="info">
-                            <h4 class="info-title">だから僕は音楽を辞めた (2019)</h4>
-                            <p>音楽への愛憎をテーマにしたコンセプトアルバム。音楽との葛藤を描いた物語性のある楽曲が特徴です。代表曲には「だから僕は音楽を辞めた」、「ヒッチコック」があります。</p>
-                        </div>
-                    </div>
-                    <div class="album">
-
-                        <img src="./images/yorushikaalbum/elma.jpg" alt="エルマ">
-
-                        <div class="info">
-                            <h4 class="info-title">エルマ (2019)</h4>
-                            <p>エルマという女性の旅を描いたストーリーアルバム。エルマの心の成長や葛藤を美しい音楽で表現しています。代表曲には「エルマ」、「花に亡霊」が含まれます。</p>
-                        </div>
-                    </div>
-                    <div class="album">
-
-                        <img src="./images/yorushikaalbum/plagiarism.jpg" alt="盗作">
-
-                        <div class="info">
-                            <h4 class="info-title">盗作 (2020)</h4>
-                            <p>人生や芸術に対する疑問を投げかける深いテーマのアルバム。独自の視点で芸術とは何かを問いかける内容です。代表曲には「盗作」、「夜行」があります。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="#n-buna" id="n-buna-tab" onclick="scrollToSection('n-buna-section')">n-buna</a></li>
-                <li><a href="#n-buna_pre-section" id="n-buna_pre-section-link" onclick="scrollToSection('n-buna_pre-section')">ボカロ曲</a></li>
-                <li><a href="#n-buna_album-section" id="n-buna_album-section-link" onclick="scrollToSection('n-buna_album-section')">n-bunaアルバム</a></li>
-                <li><a href="#yorushika" id="yorushika-tab" onclick="scrollToSection('yorushika-section')">ヨルシカ</a></li>
-                <li><a href="#yorushika_pre-section" id="yorushika_pre-section-link" onclick="scrollToSection('yorushika_pre-section')">ヨルシカ代表曲</a></li>
-                <li><a href="#yorushika_album-section" id="yorushika_album-section-link" onclick="scrollToSection('yorushika_album-section')">ヨルシカアルバム</a></li>
-            </ul>
-        </nav>
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="script.js"></script>
+        </div>
+    </div>
+    <div class="eraser-effect" id="eraser-effect"></div>
+    <script src="scripts.js"></script>
 </body>
 </html>
