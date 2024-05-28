@@ -1,5 +1,7 @@
+/* その他のスタイルはそのまま */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', serif;
+    font-weight: 400;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -9,14 +11,14 @@ body {
     align-items: center;
     background: url('images/sho.jpg') no-repeat center center fixed;
     background-size: cover;
-    backdrop-filter: blur(8px); /* ぼかし効果を適用 */
+    backdrop-filter: blur(8px);
 }
 
 .container {
     position: relative;
     width: 90%;
     max-width: 1200px;
-    background: rgba(255, 255, 255, 0.8); /* コンテンツの背景を半透明に */
+    background: rgba(240, 240, 240, 0.9); /* 落ち着いた背景色 */
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -28,7 +30,7 @@ body {
 }
 
 .container:hover {
-    transform: scale(1.01); /* ホバー時に少し拡大 */
+    transform: scale(1.01);
 }
 
 .header {
@@ -39,6 +41,7 @@ body {
 
 .header h1 {
     font-size: 2em;
+    font-weight: 400;
     transition: all 0.3s ease;
 }
 
@@ -55,6 +58,7 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 400;
     transition: background-color 0.3s;
 }
 
@@ -69,7 +73,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(230, 230, 230, 0.8); /* 少し透ける落ち着いた背景色 */
     z-index: -1;
     opacity: 0;
     transition: opacity 2s ease;
@@ -84,12 +88,12 @@ body {
 .artist-info,
 .songs-info {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* 左揃えに変更 */
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    gap: 10px; /* 追加: コンテンツ間の間隔を狭める */
+    gap: 20px; /* 間隔を調整 */
 }
 
 .artist-image,
@@ -98,7 +102,6 @@ body {
     height: 300px;
     background-size: cover;
     background-position: center;
-    margin-right: 10px; /* 変更: 右のマージンを小さくする */
     overflow: hidden;
     position: relative;
 }
@@ -121,6 +124,20 @@ body {
     flex: 1;
     text-align: left;
     min-width: 200px;
+}
+
+.song-description p {
+    margin: 5px 0;
+    line-height: 1.6; /* 行間を調整 */
+}
+
+.song-description p#author-comment,
+.song-description p#site-comment {
+    margin-top: 15px;
+}
+
+.artist-description {
+    flex: 1; /* 説明文が画像の隣に表示されるようにする */
 }
 
 .toggle-button {

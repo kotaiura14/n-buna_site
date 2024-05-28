@@ -12,29 +12,20 @@ function toggleInfo() {
     let artistName = document.getElementById('artist-name');
     let artistImage = document.getElementById('artist-image');
     let artistDescription = document.getElementById('artist-description');
+    let nBunaInfo = document.getElementById('n-buna-info');
+    let yorushikaInfo = document.getElementById('yorushika-info');
 
     if (artistName.textContent === 'n-buna') {
         artistName.textContent = 'ヨルシカ';
-        artistImage.style.backgroundImage = "url('images/yorushika.jpg')";
-        artistDescription.innerHTML = `
-            <ul>
-                <li>ヨルシカは日本のロックバンドで、2017年に結成されました。</li>
-                <li>n-buna（ナブナ）が作曲、編曲、プロデュースを担当しています。</li>
-                <li>ボーカルはsuisが担当しています。</li>
-                <li>詩的で文学的な歌詞とメロディアスな楽曲が特徴です。</li>
-                <li>代表曲には「ただ君に晴れ」、「花に亡霊」、「言って。」などがあります。</li>
-            </ul>`;
+        artistImage.style.backgroundImage = "url('images/artist/yorushika.jpg')";
+        nBunaInfo.style.display = 'none';
+        yorushikaInfo.style.display = 'block';
         document.body.style.backgroundColor = "#ffe4e1"; // ヨルシカ用の背景色
     } else {
         artistName.textContent = 'n-buna';
-        artistImage.style.backgroundImage = "url('images/tako.jpg')";
-        artistDescription.innerHTML = `
-            <ul>
-                <li>n-buna（ナブナ）は日本の音楽プロデューサー、作曲家、編曲家です。</li>
-                <li>ボーカロイドを使用した楽曲で知られています。</li>
-                <li>代表曲には「夜明けと蛍」、「ウミユリ海底譚」、「透明エレジー」などがあります。</li>
-                <li>ヨルシカのメインコンポーザーとしても活動しています。</li>
-            </ul>`;
+        artistImage.style.backgroundImage = "url('images/artist/tako.jpg')";
+        nBunaInfo.style.display = 'block';
+        yorushikaInfo.style.display = 'none';
         document.body.style.backgroundColor = "#d3f8e2"; // n-buna用の背景色
     }
 }
@@ -50,12 +41,42 @@ function erasePage() {
 let slideIndex = 0;
 const slides = document.querySelectorAll('.slides img');
 const totalSlides = slides.length;
+let slideshowPlaying = true;
+let slideshowInterval;
 
 function showSlides() {
-    slides.forEach((slide, index) => {
-        slide.style.opacity = (index === slideIndex) ? '1' : '0';
-    });
-    slideIndex = (slideIndex + 1) % totalSlides;
+    if (slideshowPlaying) {
+        slides.forEach((slide, index) => {
+            slide.style.opacity = (index === slideIndex) ? '1' : '0';
+        });
+        updateSongDescription(slideIndex);
+        slideIndex = (slideIndex + 1) % totalSlides;
+    }
 }
 
-setInterval(showSlides, 2000); // 2秒ごとに画像を切り替え
+function updateSongDescription(index) {
+    const description = JSON.parse(slides[index].dataset.description);
+    document.getElementById('song-title').innerText = description.title;
+    document.getElementById('release-date').innerText = `投稿日：${description.releaseDate}`;
+    document.getElementById('song-composer').innerText = `作曲：${description.composer}`;
+    document.getElementById('song-arranger').innerText = `編曲：${description.arranger}`;
+    document.getElementById('song-illustration').innerText = `イラスト：${description.illustration}`;
+    document.getElementById('song-vocals').innerText = `唄：${description.vocals}`;
+    document.getElementById('author-comment').innerText = `作者コメント：${description.authorComment}`;
+    document.getElementById('site-comment').innerText = `サイト作者コメント：${description.siteComment}`;
+}
+
+function toggleSlideshow() {
+    slideshowPlaying = !slideshowPlaying;
+    if (slideshowPlaying) {
+        slideshowInterval = setInterval(showSlides, 2000);
+    } else {
+        clearInterval(slideshowInterval);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    slideshowInterval = setInterval(showSlides, 5000); // 2秒ごとに画像を切り替え
+    showSlides(); // 初回のスライド表示と概要更新を行う
+    document.querySelector('.slides').addEventListener('click', toggleSlideshow);
+});
