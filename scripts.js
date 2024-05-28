@@ -76,7 +76,7 @@ function toggleSlideshow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    slideshowInterval = setInterval(showSlides, 5000); // 2秒ごとに画像を切り替え
+    slideshowInterval = setInterval(showSlides, 10000); // 10秒ごとに画像を切り替え
     showSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.slides').addEventListener('click', toggleSlideshow);
 });
