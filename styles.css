@@ -1,5 +1,6 @@
+/* タイポグラフィを改善 */
 body {
-    font-family: 'Times New Roman', serif;
+    font-family: 'Arial', sans-serif;
     font-weight: 400;
     margin: 0;
     padding: 0;
@@ -8,9 +9,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('images/background/sho.jpg') no-repeat center center fixed; /* 最初の画像を指定 */
+    background: url('images/background/sho.jpg') no-repeat center center fixed;
     background-size: cover;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px); /* ぼかしを少し減らしてクリアな背景を強調 */
     transition: background 1s ease;
 }
 
@@ -18,52 +19,56 @@ body {
     position: relative;
     width: 90%;
     max-width: 1200px;
-    background: rgba(240, 240, 240, 0.9); /* 落ち着いた背景色 */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9); /* 背景をもう少し明るく */
+    border-radius: 15px; /* 角を丸くして柔らかい印象に */
+    padding: 30px; /* パディングを増やして余白を持たせる */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* シャドウを強めにして立体感を演出 */
     z-index: 1;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.6s ease;
+    transition: transform 0.4s ease; /* トランスフォームを少し速く */
 }
 
 .container:hover {
-    transform: scale(1.01);
+    transform: scale(1.02); /* ホバー時のスケールを少し大きく */
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px; /* ヘッダーの下に余白を追加 */
 }
 
 .header h1 {
-    font-size: 2em;
-    font-weight: 400;
+    font-size: 2.5em; /* フォントサイズを大きく */
+    font-weight: 500; /* フォントウェイトを少し重く */
     transition: all 0.3s ease;
+    color: #333; /* フォントカラーを変更 */
 }
 
 .nav {
     display: flex;
     justify-content: space-around;
-    border-bottom: 1px solid #000;
-    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* ボーダーカラーを変更 */
+    margin-bottom: 30px; /* マージンを増やす */
 }
 
 .nav button {
     background: none;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px; /* パディングを増やす */
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px; /* フォントサイズを大きく */
     font-weight: 400;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s; /* カラーのトランジションを追加 */
+    color: #555; /* フォントカラーを変更 */
 }
 
 .nav button:hover {
-    background-color: #ddd;
+    background-color: #f0f0f0; /* ホバー時の背景色を変更 */
+    color: #000; /* ホバー時のフォントカラーを変更 */
 }
 
 .section {
@@ -73,10 +78,10 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(230, 230, 230, 0.8); /* 少し透ける落ち着いた背景色 */
+    background: rgba(255, 255, 255, 0.8); /* 背景を明るく */
     z-index: -1;
     opacity: 0;
-    transition: opacity 2s ease;
+    transition: opacity 1.5s ease; /* トランジションを短く */
 }
 
 .section.active {
@@ -88,22 +93,24 @@ body {
 .artist-info,
 .songs-info {
     display: flex;
-    justify-content: flex-start; /* 左揃えに変更 */
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    gap: 20px; /* 間隔を調整 */
+    gap: 20px;
 }
 
 .artist-image,
 .songs-slideshow {
-    width: 300px;
-    height: 300px;
+    width: 350px; /* サイズを変更 */
+    height: 350px; /* サイズを変更 */
     background-size: cover;
     background-position: center;
     overflow: hidden;
     position: relative;
+    border-radius: 10px; /* 角を丸く */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* シャドウを追加 */
 }
 
 .slides {
@@ -127,24 +134,33 @@ body {
 }
 
 .song-description p {
-    margin: 5px 0;
-    line-height: 1.6; /* 行間を調整 */
+    margin: 10px 0; /* マージンを増やす */
+    line-height: 1.8; /* 行間を広く */
+    color: #444; /* フォントカラーを変更 */
 }
 
 .song-description p#author-comment,
 .song-description p#site-comment {
-    margin-top: 15px;
+    margin-top: 20px; /* マージンを増やす */
 }
 
 .artist-description {
-    flex: 1; /* 説明文が画像の隣に表示されるようにする */
+    flex: 1;
+    color: #444; /* フォントカラーを変更 */
 }
 
 .toggle-button {
-    padding: 10px 20px;
+    padding: 15px 30px; /* パディングを増やす */
     border: none;
     background-color: #ddd;
     cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* カラーのトランジションを追加 */
+    color: #555; /* フォントカラーを変更 */
+}
+
+.toggle-button:hover {
+    background-color: #ccc; /* ホバー時の背景色を変更 */
+    color: #000; /* ホバー時のフォントカラーを変更 */
 }
 
 .eraser-effect {
@@ -184,7 +200,6 @@ body {
     transition: opacity 1s ease-in;
 }
 
-/* スライドアニメーション */
 .slide-left {
     animation: slideLeft 1s ease-in-out forwards;
 }
@@ -227,5 +242,3 @@ body {
         opacity: 0;
     }
 }
-
-
