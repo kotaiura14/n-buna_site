@@ -183,3 +183,49 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in;
 }
+
+/* スライドアニメーション */
+.slide-left {
+    animation: slideLeft 1s ease-in-out forwards;
+}
+
+.slide-right {
+    animation: slideRight 1s ease-in-out forwards;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
