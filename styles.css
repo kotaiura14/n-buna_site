@@ -90,7 +90,8 @@ body {
 }
 
 .artist-info,
-.songs-info {
+.songs-info,
+.albums-info {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -101,7 +102,8 @@ body {
 }
 
 .artist-image,
-.songs-slideshow {
+.songs-slideshow,
+.albums-slideshow {
     width: 500px; /* サイズを変更 */
     height: 500px; /* サイズを変更 */
     background-size: cover;
@@ -126,21 +128,23 @@ body {
     transition: opacity 1s;
 }
 
-.song-description {
+.song-description,
+.album-description {
     flex: 1;
     text-align: left;
     min-width: 200px;
 }
 
-.song-description p {
+.song-description p,
+.album-description li {
     margin: 10px 0; /* マージンを増やす */
     line-height: 1.8; /* 行間を広く */
     color: #444; /* フォントカラーを変更 */
 }
 
-.artist-description {
-    flex: 1;
-    color: #444; /* フォントカラーを変更 */
+.album-description ul {
+    list-style: none;
+    padding: 0;
 }
 
 .toggle-button {
