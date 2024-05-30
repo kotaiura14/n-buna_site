@@ -77,7 +77,7 @@ function erasePage() {
 }
 
 let slideIndex = 0;
-const slides = document.querySelectorAll('.slides img');
+const slides = document.querySelectorAll('.songs-slideshow .slides img');
 const totalSlides = slides.length;
 let slideshowPlaying = true;
 let slideshowInterval;
@@ -93,16 +93,20 @@ function showSlides() {
 }
 
 function updateSongDescription(index) {
-    const description = JSON.parse(slides[index].dataset.description);
-    document.getElementById('song-title').innerText = description.title;
-    document.getElementById('release-date').innerText = `投稿日：${description.releaseDate}`;
-    document.getElementById('song-composer').innerText = `作曲：${description.composer}`;
-    document.getElementById('song-arranger').innerText = `編曲：${description.arranger}`;
-    document.getElementById('song-illustration').innerText = `イラスト：${description.illustration}`;
-    document.getElementById('song-vocals').innerText = `唄：${description.vocals}`;
-    document.getElementById('author-comment').innerText = `作者コメント：${description.authorComment}`;
-    document.getElementById('site-comment').innerHTML = `サイト作者コメント：${description.siteComment}`;
+    const slides = document.querySelectorAll('.songs-slideshow .slides img');
+    if (index < slides.length) {
+        const description = JSON.parse(slides[index].dataset.songDescription);
+        document.getElementById('song-title').innerText = description.title || 'N/A';
+        document.getElementById('release-date').innerText = description.releaseDate ? `投稿日：${description.releaseDate}` : 'N/A';
+        document.getElementById('song-composer').innerText = description.composer ? `作曲：${description.composer}` : 'N/A';
+        document.getElementById('song-arranger').innerText = description.arranger ? `編曲：${description.arranger}` : 'N/A';
+        document.getElementById('song-illustration').innerText = description.illustration ? `イラスト：${description.illustration}` : 'N/A';
+        document.getElementById('song-vocals').innerText = description.vocals ? `唄：${description.vocals}` : 'N/A';
+        document.getElementById('author-comment').innerText = description.authorComment ? `作者コメント：${description.authorComment}` : 'N/A';
+        document.getElementById('site-comment').innerHTML = description.siteComment ? `サイト作者コメント：${description.siteComment}` : 'N/A';
+    }
 }
+
 function toggleSlideshow() {
     slideshowPlaying = !slideshowPlaying;
     if (slideshowPlaying) {
@@ -113,7 +117,7 @@ function toggleSlideshow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    slideshowInterval = setInterval(showSlides, 10000); // 10秒ごとに画像を切り替え
+    slideshowInterval = setInterval(showSlides, 10000); // 2秒ごとに画像を切り替え
     showSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.slides').addEventListener('click', toggleSlideshow);
 });
@@ -132,3 +136,49 @@ function changeBackground() {
 }
 
 setInterval(changeBackground, 10000); // 10秒ごとに背景画像を変更
+
+let albumIndex = 0;
+const albumSlides = document.querySelectorAll('.albums-slideshow .slides img');
+const totalAlbumSlides = albumSlides.length;
+let albumSlideshowPlaying = true;
+let albumSlideshowInterval;
+
+function showAlbumSlides() {
+    if (albumSlideshowPlaying) {
+        albumSlides.forEach((slide, index) => {
+            slide.style.opacity = (index === albumIndex) ? '1' : '0';
+        });
+        updateAlbumDescription(albumIndex);
+        albumIndex = (albumIndex + 1) % totalAlbumSlides;
+    }
+}
+
+function updateAlbumDescription(index) {
+    const slides = document.querySelectorAll('.albums-slideshow .slides img');
+    if (index < slides.length) {
+        const description = JSON.parse(slides[index].dataset.albumDescription);
+        document.getElementById('album-title').innerText = description.title || 'N/A';
+        const trackList = document.getElementById('album-tracks');
+        trackList.innerHTML = ''; // Clear previous tracks
+        if (description.tracks) {
+            description.tracks.forEach(track => {
+                const li = document.createElement('li');
+                li.innerText = track;
+                trackList.appendChild(li);
+            });
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    albumSlideshowInterval = setInterval(showAlbumSlides, 10000); // 2秒ごとに画像を切り替え
+    showAlbumSlides(); // 初回のスライド表示と概要更新を行う
+    document.querySelector('.albums-slideshow').addEventListener('click', () => {
+        albumSlideshowPlaying = !albumSlideshowPlaying;
+        if (albumSlideshowPlaying) {
+            albumSlideshowInterval = setInterval(showAlbumSlides, 10000);
+        } else {
+            clearInterval(albumSlideshowInterval);
+        }
+    });
+});
