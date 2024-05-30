@@ -1,4 +1,3 @@
-/* タイポグラフィを改善 */
 body {
     font-family: 'Arial', sans-serif;
     font-weight: 400;
@@ -103,8 +102,8 @@ body {
 
 .artist-image,
 .songs-slideshow {
-    width: 350px; /* サイズを変更 */
-    height: 350px; /* サイズを変更 */
+    width: 500px; /* サイズを変更 */
+    height: 500px; /* サイズを変更 */
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -137,11 +136,6 @@ body {
     margin: 10px 0; /* マージンを増やす */
     line-height: 1.8; /* 行間を広く */
     color: #444; /* フォントカラーを変更 */
-}
-
-.song-description p#author-comment,
-.song-description p#site-comment {
-    margin-top: 20px; /* マージンを増やす */
 }
 
 .artist-description {
@@ -241,4 +235,9 @@ body {
     to {
         opacity: 0;
     }
+}
+
+.indented {
+    display: block;
+    margin-left: 1em; /* インデントの幅を指定 */
 }

@@ -101,9 +101,8 @@ function updateSongDescription(index) {
     document.getElementById('song-illustration').innerText = `イラスト：${description.illustration}`;
     document.getElementById('song-vocals').innerText = `唄：${description.vocals}`;
     document.getElementById('author-comment').innerText = `作者コメント：${description.authorComment}`;
-    document.getElementById('site-comment').innerText = `サイト作者コメント：${description.siteComment}`;
+    document.getElementById('site-comment').innerHTML = `サイト作者コメント：${description.siteComment}`;
 }
-
 function toggleSlideshow() {
     slideshowPlaying = !slideshowPlaying;
     if (slideshowPlaying) {
