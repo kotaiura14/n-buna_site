@@ -36,8 +36,6 @@ function showSection(section) {
     event.target.classList.add('active');
 }
 
-
-
 function toggleInfo() {
     document.body.classList.add('fade-out');
     setTimeout(() => {
@@ -103,9 +101,8 @@ function updateSongDescription(index) {
     document.getElementById('song-illustration').innerText = `イラスト：${description.illustration}`;
     document.getElementById('song-vocals').innerText = `唄：${description.vocals}`;
     document.getElementById('author-comment').innerText = `作者コメント：${description.authorComment}`;
-    document.getElementById('site-comment').innerText = `サイト作者コメント：${description.siteComment}`;
+    document.getElementById('site-comment').innerHTML = `サイト作者コメント：${description.siteComment}`;
 }
-
 function toggleSlideshow() {
     slideshowPlaying = !slideshowPlaying;
     if (slideshowPlaying) {
@@ -116,7 +113,7 @@ function toggleSlideshow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    slideshowInterval = setInterval(showSlides, 10000);// 10秒ごとに画像を切り替え
+    slideshowInterval = setInterval(showSlides, 10000); // 10秒ごとに画像を切り替え
     showSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.slides').addEventListener('click', toggleSlideshow);
 });
@@ -134,4 +131,4 @@ function changeBackground() {
     document.body.style.backgroundImage = `url(${images[currentIndex]})`;
 }
 
-setInterval(changeBackground, 10000);//10秒ごとに背景画像を変更
+setInterval(changeBackground, 10000); // 10秒ごとに背景画像を変更
