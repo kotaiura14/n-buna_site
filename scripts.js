@@ -117,7 +117,7 @@ function toggleSlideshow() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    slideshowInterval = setInterval(showSlides, 10000); // 2秒ごとに画像を切り替え
+    slideshowInterval = setInterval(showSlides, 2000); // 2秒ごとに画像を切り替え
     showSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.slides').addEventListener('click', toggleSlideshow);
 });
@@ -158,6 +158,7 @@ function updateAlbumDescription(index) {
     if (index < slides.length) {
         const description = JSON.parse(slides[index].dataset.albumDescription);
         document.getElementById('album-title').innerText = description.title || 'N/A';
+        document.getElementById('album-overview').innerHTML = description.overview || ''; // アルバムの概要を更新
         const trackList = document.getElementById('album-tracks');
         trackList.innerHTML = ''; // Clear previous tracks
         if (description.tracks) {
@@ -171,7 +172,7 @@ function updateAlbumDescription(index) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    albumSlideshowInterval = setInterval(showAlbumSlides, 10000); // 2秒ごとに画像を切り替え
+    albumSlideshowInterval = setInterval(showAlbumSlides, 10000); // 10秒ごとに画像を切り替え
     showAlbumSlides(); // 初回のスライド表示と概要更新を行う
     document.querySelector('.albums-slideshow').addEventListener('click', () => {
         albumSlideshowPlaying = !albumSlideshowPlaying;
