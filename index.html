@@ -14,17 +14,17 @@
             <button class="toggle-button n-buna" onclick="toggleInfo();">切り替え</button>
         </div>
         <div class="nav">
-            <button onclick="showSection('artist');" class="active">Artist</button>
-            <button onclick="showSection('songs');">Songs</button>
-            <button onclick="showSection('albums');">Albums</button>
-        </div>              
+            <button onclick="showSection('artist', event);" class="active">Artist</button>
+            <button onclick="showSection('songs', event);">Songs</button>
+            <button onclick="showSection('albums', event);">Albums</button>
+        </div>
         <div id="content">
             <div id="artist" class="section active">
                 <div class="artist-info">
                     <div class="artist-image" id="artist-image" style="background-image: url('images/artist/tako.jpg');"></div>
                     <div class="artist-description" id="artist-description">
                         <!-- n-bunaの情報 -->
-                        <ul id="n-buna-info">
+                        <ul class="n-buna-info">
                             <li>n-buna（ナブナ）は日本のソングライター、編曲家、ボカロP、ギタリスト</li>
                             <li>代表曲は「夜明けと蛍」、「ウミユリ海底譚」、「透明エレジー」など</li>
                             <li>感情豊かなメロディーと深い歌詞が特徴、人によって曲の解釈が大きく変わる。</li>
@@ -41,7 +41,7 @@
                             </ul>
                         </ul>
                         <!-- ヨルシカの情報 -->
-                        <ul id="yorushika-info" style="display: none;">
+                        <ul class="yorushika-info" style="display: none;">
                             <li>ヨルシカは2017年にn-buna（ナブナ）とボーカルのsuisによって結成</li>
                             <li>suisはバンドのボーカルを務め、その透き通るような声と表現力豊かな歌唱で多くのファンを魅了</li>
                             <li>代表曲は「ただ君に晴れ」、「花に亡霊」、「言って。」など</li>
@@ -62,8 +62,9 @@
             <div id="songs" class="section">
                 <div class="songs-info">
                     <div class="songs-slideshow">
-                        <div class="slides">
-                            <img src="images/pressongs/meryu.jpg" alt="メリュー" data-song-description='{
+                        <!-- n-bunaのSongs -->
+                        <div class="slides n-buna-info">
+                            <img src="images/pressongs/meryu.jpg" alt="メリュー" data-n-buna-song-description='{
                                 "title": "メリュー",
                                 "composer": "ナブナ",
                                 "arranger": "ナブナ",
@@ -73,7 +74,27 @@
                                 "siteComment": "<br>友人の自殺を止められなかった自分の無力さを嘆く歌。<br>ボーカロイド楽曲なのに人が歌っていると錯覚するほど感情が伝わってくるのを感じます。<br>個人的に拍手の拍の取り方がすごく好きです。",
                                 "releaseDate": "2016-04-27"
                             }'>
-                            <img src="images/pressongs/aira.jpg" alt="アイラ" data-song-description='{
+                            <img src="images/pressongs/yoake.jpg" alt="夜明けと蛍" data-n-buna-song-description='{
+                                "title": "夜明けと蛍",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "No.734",
+                                "vocals": "初音ミク",
+                                "authorComment": "最高の夏にしよう2014冬。今年の夏曲はホタルです。間に合った。",
+                                "siteComment": "<br>自分の夢から目を背け続ける主人公が悩み葛藤し一歩を踏み出す歌。<br>主人公が最後に思いついた曲の歌詞が曲名とリンクしているところに作詞センスを感じます。<br>私がn-bunaさんを知ることになったきっかけの曲で最初に聞いた衝撃を今でも覚えています。",
+                                "releaseDate": "2014-08-15"
+                            }'>
+                            <img src="images/pressongs/umiyuri.jpg" alt="ウミユリ海底譚" data-n-buna-song-description='{
+                                "title": "ウミユリ海底譚",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "あわしま",
+                                "vocals": "初音ミク",
+                                "authorComment": "そうだ空に行こう！。",
+                                "siteComment": "<br>夢と現実の狭間で揺れる主人公が自分にとって光のような存在だった君に思い馳せる歌。<br>君に言葉が届かなかった僕の嘆きが心に刺さります。<br>人によって解釈が大きく変わる曲だと感じそれもまたn-bunaさんの魅力だと思いました。",
+                                "releaseDate": "2013-02-09"
+                            }'>
+                            <img src="images/pressongs/aira.jpg" alt="アイラ" data-n-buna-song-description='{
                                 "title": "アイラ",
                                 "lyricist": "ナブナ",
                                 "composer": "ナブナ",
@@ -84,25 +105,48 @@
                                 "siteComment": "<br>いなくなってしまったアイラという少女に何も出来なかった後悔の歌。<br>曲の進行とともに主人公に共感し、最後のアイラは叫ばずにはいられません。<br>イラストと共に空虚な夏を感じられる素晴らしい曲です。",
                                 "releaseDate": "2014-12-14"
                             }'>
-                            <img src="images/pressongs/umiyuri.jpg" alt="ウミユリ海底譚" data-song-description='{
-                                "title": "ウミユリ海底譚",
+                        </div>
+                        <!-- ヨルシカのSongs -->
+                        <div class="slides yorushika-info" style="display: none;">
+                            <img src="images/yorushika_pre/tada.jpg" alt="ただ君に晴れ" data-yorushika-song-description='{
+                                "title": "ただ君に晴れ",
                                 "composer": "ナブナ",
                                 "arranger": "ナブナ",
                                 "illustration": "あわしま",
-                                "vocals": "初音ミク",
-                                "authorComment": "そうだ空に行こう！。",
-                                "siteComment": "<br>夢と現実の狭間で揺れる主人公が自分にとって光のような存在だった君に思い馳せる歌。<br>君に言葉が届かなかった僕の嘆きが心に刺さります。<br>人によって解釈が大きく変わる曲だと感じそれもまたn-bunaさんの魅力だと思いました。",
-                                "releaseDate": "2013-02-09"
+                                "vocals": "suis",
+                                "authorComment": "夏の終わりの一曲。",
+                                "siteComment": "<br>透き通るような声が夏の終わりの切なさを伝える曲。<br>繊細な歌詞とメロディーが心に響きます。",
+                                "releaseDate": "2018-04-22"
                             }'>
-                            <img src="images/pressongs/yoake.jpg" alt="夜明けと蛍" data-song-description='{
-                                "title": "夜明けと蛍",
+                            <img src="images/yorushika_pre/itte.jpg" alt="言って。" data-yorushika-song-description='{
+                                "title": "言って。",
                                 "composer": "ナブナ",
                                 "arranger": "ナブナ",
                                 "illustration": "No.734",
-                                "vocals": "初音ミク",
-                                "authorComment": "最高の夏にしよう2014冬。今年の夏曲はホタルです。間に合った。",
-                                "siteComment": "<br>自分の夢から目を背け続ける主人公が悩み葛藤し一歩を踏み出す歌。<br>主人公が最後に思いついた曲の歌詞が曲名とリンクしているところに作詞センスを感じます。<br>私がn-bunaさんを知ることになったきっかけの曲で最初に聞いた衝撃を今でも覚えています。",
-                                "releaseDate": "2014-08-15"
+                                "vocals": "suis",
+                                "authorComment": "感情をぶつけるような一曲。",
+                                "siteComment": "<br>切ないメロディーと感情的な歌詞が特徴の曲です。",
+                                "releaseDate": "2017-11-01"
+                            }'>
+                            <img src="images/yorushika_pre/bourei.jpg" alt="花に亡霊" data-yorushika-song-description='{
+                                "title": "花に亡霊",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "Aちき",
+                                "vocals": "suis",
+                                "authorComment": "映画の主題歌として書いた曲。",
+                                "siteComment": "<br>美しいメロディーと共に思い出を呼び覚ますような曲です。",
+                                "releaseDate": "2020-06-01"
+                            }'>
+                            <img src="images/yorushika_pre/haru.jpg" alt="晴る" data-yorushika-song-description='{
+                                "title": "晴る",
+                                "composer": "ナブナ",
+                                "arranger": "ナブナ",
+                                "illustration": "No.734",
+                                "vocals": "suis",
+                                "authorComment": "希望を感じさせる明るい曲。",
+                                "siteComment": "<br>春の暖かさを感じさせるメロディーが心に染み渡ります。",
+                                "releaseDate": "2019-03-03"
                             }'>
                         </div>
                     </div>
@@ -118,12 +162,12 @@
                     </div>
                 </div>
             </div>
-            
             <div id="albums" class="section">
                 <div class="albums-info">
                     <div class="albums-slideshow">
-                        <div class="slides">
-                            <img src="images/vocaloalbum/curtaim.jpg" alt="カーテンコールが止む前に" data-album-description='{
+                        <!-- n-bunaのAlbums -->
+                        <div class="slides n-buna-info">
+                            <img src="images/vocaloalbum/curtaim.jpg" alt="カーテンコールが止む前に" data-n-buna-album-description='{
                                 "title": "同人アルバム：カーテンコールが止む前に",
                                 "overview": "アートワーク：あわしまマスタリング：友達募集P<br>作者コメント：僕の考えた最高のさよなら",
                                 "tracks": [
@@ -143,7 +187,7 @@
                                     "14: さよならワンダーノイズ"
                                 ]
                             }'>
-                            <img src="images/vocaloalbum/hana.jpg" alt="花と水飴、最終電車" data-album-description='{
+                            <img src="images/vocaloalbum/hana.jpg" alt="花と水飴、最終電車" data-n-buna-album-description='{
                                 "title": "１st Album：花と水飴、最終電車",
                                 "overview": "夏の終わりの１日”をテーマに物語的構成で綴られた、ナブナ待望のメジャー1stアルバム。<br>インタビュー記事を<a href=\"https://www.barks.jp/news/?id=1000119785\" target=\"_blank\">こちら</a>から見れます。",
                                 "tracks": [
@@ -164,7 +208,7 @@
                                     "15: 花と水飴、最終電車"
                                 ]
                             }'>
-                            <img src="images/vocaloalbum/tuki.jpg" alt="月を歩いている" data-album-description='{
+                            <img src="images/vocaloalbum/tuki.jpg" alt="月を歩いている" data-n-buna-album-description='{
                                 "title": "月を歩いている",
                                 "overview": "童話をモチーフに世界観を統一感したアルバム。1曲ずつ本人が詳しく解説しているので<br>ぜひ<a href=\"https://spice.eplus.jp/articles/65707\" target=\"_blank\">こちら</a>からご覧ください。",
                                 "tracks": [
@@ -183,6 +227,62 @@
                                     "13: それでもいいよ",
                                     "14: かぐや",
                                     "15: エピローグ"
+                                ]
+                            }'>
+                        </div>
+                        <!-- ヨルシカのAlbums -->
+                        <div class="slides yorushika-info" style="display: none;">
+                            <img src="images/yorushika/album1.jpg" alt="エルマ" data-yorushika-album-description='{
+                                "title": "エルマ",
+                                "overview": "ヨルシカの2ndアルバムであり、エルマと呼ばれる少女の物語を描いている。",
+                                "tracks": [
+                                    "01: エルマの詩",
+                                    "02: 夜行",
+                                    "03: 梅雨晴れ",
+                                    "04: 雨とカプチーノ",
+                                    "05: 雨燦々",
+                                    "06: 八月、某、月明かり",
+                                    "07: 雨とカプチーノ（acoustic）",
+                                    "08: 憂一つ",
+                                    "09: 踊り子",
+                                    "10: 花人局",
+                                    "11: 逃避行",
+                                    "12: ノーチラス",
+                                    "13: 舟"
+                                ]
+                            }'>
+                            <img src="images/yorushika/album2.jpg" alt="盗作" data-yorushika-album-description='{
+                                "title": "盗作",
+                                "overview": "盗作と呼ばれるテーマを元に創作されたアルバム。",
+                                "tracks": [
+                                    "01: 盗作",
+                                    "02: 耳なし芳一",
+                                    "03: もうひとつの命",
+                                    "04: 踊らない葬列",
+                                    "05: 昼鳴り",
+                                    "06: エルマと月光",
+                                    "07: 声なきもの",
+                                    "08: ただ君に晴れ",
+                                    "09: 春ひさぎ",
+                                    "10: 夜紛い",
+                                    "11: 花人局",
+                                    "12: 言って。"
+                                ]
+                            }'>
+                            <img src="images/yorushika/album3.jpg" alt="創作" data-yorushika-album-description='{
+                                "title": "創作",
+                                "overview": "創作の過程を描いたアルバム。",
+                                "tracks": [
+                                    "01: だから僕は音楽を辞めた",
+                                    "02: 春ひさぎ",
+                                    "03: 花に亡霊",
+                                    "04: 冬眠",
+                                    "05: 雨燦々",
+                                    "06: 雨とカプチーノ",
+                                    "07: 踊らない葬列",
+                                    "08: 花に亡霊（acoustic）",
+                                    "09: 憂一つ",
+                                    "10: ノーチラス"
                                 ]
                             }'>
                         </div>
