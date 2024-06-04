@@ -8,7 +8,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body class="n-buna-theme">
-    <div class="container" id="container">
+    <div class="background-slideshow" id="slide1" style="background-image: url('images/background/aru.jpg');"></div>
+    <div class="background-slideshow" id="slide2" style="background-image: url('images/background/gran.jpg');"></div>
+    <div class="background-slideshow" id="slide3" style="background-image: url('images/background/hana.jpg');"></div>
+    <div class="background-slideshow" id="slide4" style="background-image: url('images/background/haru.jpg');"></div>
+    <div class="background-slideshow" id="slide5" style="background-image: url('images/background/sayuu.jpg');"></div>
+    <div class="background-slideshow" id="slide6" style="background-image: url('images/background/sho.jpg');"></div>
+    <div class="background-slideshow" id="slide7" style="background-image: url('images/background/syayou.jpg');"></div>
+    <div class="background-slideshow" id="slide8" style="background-image: url('images/background/tino.jpg');"></div>
+    <div class="background-slideshow" id="slide9" style="background-image: url('images/background/tuki.jpg');"></div>
+    <div class="background-slideshow" id="slide10" style="background-image: url('images/background/yakou.jpg');"></div>
+
+    <div class="container" id="container" style="overflow: auto;">
         <div class="header">
             <h1 id="artist-name">n-buna</h1>
             <button class="toggle-button n-buna" onclick="toggleInfo();">切り替え</button>
@@ -232,57 +243,63 @@
                         </div>
                         <!-- ヨルシカのAlbums -->
                         <div class="slides yorushika-info" style="display: none;">
-                            <img src="images/yorushika/album1.jpg" alt="エルマ" data-yorushika-album-description='{
-                                "title": "エルマ",
-                                "overview": "ヨルシカの2ndアルバムであり、エルマと呼ばれる少女の物語を描いている。",
+                            <img src="images/yorushika_album/dakara.jpg" alt="だから僕は音楽を辞めた" data-yorushika-album-description='{
+                                "title": "だから僕は音楽を辞めた",
+                                "overview": "n-bunaが描く物語を軸に楽曲を書き下ろしたコンセプトアルバム。<br>音楽を辞めることになった青年が”エルマ”へ向けて作った楽曲、全14曲を収録した内容",
                                 "tracks": [
-                                    "01: エルマの詩",
-                                    "02: 夜行",
-                                    "03: 梅雨晴れ",
-                                    "04: 雨とカプチーノ",
-                                    "05: 雨燦々",
-                                    "06: 八月、某、月明かり",
-                                    "07: 雨とカプチーノ（acoustic）",
-                                    "08: 憂一つ",
-                                    "09: 踊り子",
-                                    "10: 花人局",
-                                    "11: 逃避行",
-                                    "12: ノーチラス",
-                                    "13: 舟"
+                                    "01: 8/31",
+                                    "02: 藍二乗",
+                                    "03: 八月、某、月明かり",
+                                    "04: 詩書きとコーヒー",
+                                    "05: 7/13",
+                                    "06: 踊ろうぜ",
+                                    "07: 六月は雨上がりの街を書く",
+                                    "08: 五月は花緑青の窓辺から",
+                                    "09: 夜紛い",
+                                    "10: 5/6",
+                                    "11: パレード",
+                                    "12: エルマ",
+                                    "13: 4/10",
+                                    "14: だから僕は音楽を辞めた"
                                 ]
                             }'>
-                            <img src="images/yorushika/album2.jpg" alt="盗作" data-yorushika-album-description='{
-                                "title": "盗作",
+                            <img src="images/yorushika_album/erma.jpg" alt="エルマ" data-yorushika-album-description='{
+                                "title": "エルマ",
                                 "overview": "盗作と呼ばれるテーマを元に創作されたアルバム。",
                                 "tracks": [
-                                    "01: 盗作",
-                                    "02: 耳なし芳一",
-                                    "03: もうひとつの命",
-                                    "04: 踊らない葬列",
-                                    "05: 昼鳴り",
-                                    "06: エルマと月光",
-                                    "07: 声なきもの",
-                                    "08: ただ君に晴れ",
-                                    "09: 春ひさぎ",
-                                    "10: 夜紛い",
-                                    "11: 花人局",
-                                    "12: 言って。"
+                                    "01: 車窓",
+                                    "02: 憂一乗",
+                                    "03: 夕凪、某、花惑い",
+                                    "04: 雨とカプチーノ",
+                                    "05: 湖の街",
+                                    "06: 神様のダンス",
+                                    "07: 雨晴るる",
+                                    "08: 歩く",
+                                    "09: 心に穴が開いた",
+                                    "10: 森の教会",
+                                    "11: 声",
+                                    "12: エイミー",
+                                    "13: 海底、月明かり",
+                                    "14: ノーチラス"
                                 ]
                             }'>
-                            <img src="images/yorushika/album3.jpg" alt="創作" data-yorushika-album-description='{
-                                "title": "創作",
+                            <img src="images/yorushika_album/tousaku.jpg" alt="盗作" data-yorushika-album-description='{
+                                "title": "盗作",
                                 "overview": "創作の過程を描いたアルバム。",
                                 "tracks": [
-                                    "01: だから僕は音楽を辞めた",
-                                    "02: 春ひさぎ",
-                                    "03: 花に亡霊",
-                                    "04: 冬眠",
-                                    "05: 雨燦々",
-                                    "06: 雨とカプチーノ",
-                                    "07: 踊らない葬列",
-                                    "08: 花に亡霊（acoustic）",
-                                    "09: 憂一つ",
-                                    "10: ノーチラス"
+                                    "01: 音楽泥棒の自白",
+                                    "02: 昼鷺",
+                                    "03: 春ひさぎ",
+                                    "04: 爆弾魔-Re-Recording",
+                                    "05: 青年期、空き巣",
+                                    "06: レプリカント",
+                                    "07: 朱夏期、音楽泥棒",
+                                    "08: 盗作",
+                                    "09: 思想犯",
+                                    "10: 逃亡",
+                                    "11: 幼年期、思い出の中",
+                                    "12: 夜行",
+                                    "13: 花に亡霊"
                                 ]
                             }'>
                         </div>
@@ -290,7 +307,10 @@
                     <div class="album-description" id="album-description">
                         <h2 id="album-title"></h2>
                         <p id="album-overview"></p> <!-- アルバムの概要を表示する要素 -->
-                        <ul id="album-tracks"></ul>
+                        <div class="album-tracks">
+                            <ul id="album-tracks-first-half"></ul>
+                            <ul id="album-tracks-second-half"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
