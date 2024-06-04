@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
 </head>
 <body class="n-buna-theme">
+    <div class="background-slideshow" id="slide1" style="background-image: url('images/background/aru.jpg');"></div>
+    <div class="background-slideshow" id="slide2" style="background-image: url('images/background/gran.jpg');"></div>
+    <div class="background-slideshow" id="slide3" style="background-image: url('images/background/hana.jpg');"></div>
+    <div class="background-slideshow" id="slide4" style="background-image: url('images/background/haru.jpg');"></div>
+    <div class="background-slideshow" id="slide5" style="background-image: url('images/background/sayuu.jpg');"></div>
+    <div class="background-slideshow" id="slide6" style="background-image: url('images/background/sho.jpg');"></div>
+    <div class="background-slideshow" id="slide7" style="background-image: url('images/background/syayou.jpg');"></div>
+    <div class="background-slideshow" id="slide8" style="background-image: url('images/background/tino.jpg');"></div>
+    <div class="background-slideshow" id="slide9" style="background-image: url('images/background/tuki.jpg');"></div>
+    <div class="background-slideshow" id="slide10" style="background-image: url('images/background/yakou.jpg');"></div>
+
     <div class="container" id="container" style="overflow: auto;">
         <div class="header">
             <h1 id="artist-name">n-buna</h1>
@@ -234,7 +245,7 @@
                         <div class="slides yorushika-info" style="display: none;">
                             <img src="images/yorushika_album/dakara.jpg" alt="だから僕は音楽を辞めた" data-yorushika-album-description='{
                                 "title": "だから僕は音楽を辞めた",
-                                "overview": "ヨルシカの2ndアルバムであり、エルマと呼ばれる少女の物語を描いている。",
+                                "overview": "n-bunaが描く物語を軸に楽曲を書き下ろしたコンセプトアルバム。<br>音楽を辞めることになった青年が”エルマ”へ向けて作った楽曲、全14曲を収録した内容",
                                 "tracks": [
                                     "01: 8/31",
                                     "02: 藍二乗",
@@ -296,7 +307,10 @@
                     <div class="album-description" id="album-description">
                         <h2 id="album-title"></h2>
                         <p id="album-overview"></p> <!-- アルバムの概要を表示する要素 -->
-                        <ul id="album-tracks"></ul>
+                        <div class="album-tracks">
+                            <ul id="album-tracks-first-half"></ul>
+                            <ul id="album-tracks-second-half"></ul>
+                        </div>
                     </div>
                 </div>
             </div>

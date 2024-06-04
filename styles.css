@@ -8,9 +8,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url('images/background/sho.jpg') no-repeat center center fixed;
-    background-size: cover;
-    backdrop-filter: blur(10px);
     transition: background 1s ease;
 }
 
@@ -305,4 +302,46 @@ body {
 .album-description ul li {
     margin-bottom: 10px;
     color: #444;
+}
+
+.album-description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.album-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.album-description .album-tracks {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.album-description .album-tracks ul {
+    flex: 1;
+    margin: 0 10px;
+}
+
+/* スライドショーの背景画像 */
+.background-slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.background-slideshow.active {
+    opacity: 1;
 }

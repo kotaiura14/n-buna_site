@@ -16,6 +16,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // スライドショーのクリックイベントリスナーを設定
     document.querySelector('.songs-slideshow').addEventListener('click', toggleSongSlideshow);
     document.querySelector('.albums-slideshow').addEventListener('click', toggleAlbumSlideshow);
+
+    // 背景スライドショーの設定
+    let slides = document.querySelectorAll('.background-slideshow');
+    let currentSlide = 0;
+
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    slides[currentSlide].classList.add('active');
+    setInterval(showNextSlide, 5000); // 5秒ごとにスライドを切り替え
 });
 
 // スライドの表示を更新する関数
@@ -165,14 +178,26 @@ function updateAlbumDescription(index) {
         document.getElementById('album-title').innerText = description.title || 'N/A';
         document.getElementById('album-overview').innerHTML = description.overview || '';
         
-        const trackList = document.getElementById('album-tracks');
-        trackList.innerHTML = '';
+        const firstHalfTrackList = document.getElementById('album-tracks-first-half');
+        const secondHalfTrackList = document.getElementById('album-tracks-second-half');
+        firstHalfTrackList.innerHTML = '';
+        secondHalfTrackList.innerHTML = '';
 
         if (description.tracks) {
-            description.tracks.forEach(track => {
+            const half = Math.ceil(description.tracks.length / 2);
+            const firstHalfTracks = description.tracks.slice(0, half);
+            const secondHalfTracks = description.tracks.slice(half);
+
+            firstHalfTracks.forEach(track => {
                 const li = document.createElement('li');
                 li.innerText = track;
-                trackList.appendChild(li);
+                firstHalfTrackList.appendChild(li);
+            });
+
+            secondHalfTracks.forEach(track => {
+                const li = document.createElement('li');
+                li.innerText = track;
+                secondHalfTrackList.appendChild(li);
             });
         }
     }
