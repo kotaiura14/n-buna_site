@@ -1,13 +1,18 @@
+let songSlideshowInterval;
+let albumSlideshowInterval;
+let songSlideIndex = 0;
+let albumSlideIndex = 0;
+let songSlideshowPlaying = true;
+let albumSlideshowPlaying = true;
+
 document.addEventListener('DOMContentLoaded', () => {
-    // スライドショーのインターバルを設定
     updateSlidesVisibility(); // スライドショーの表示を初期化
-    songSlideshowInterval = setInterval(showSongSlides, 2000); // 2秒ごとにスライドを切り替える
-    albumSlideshowInterval = setInterval(showAlbumSlides, 10000); // 10秒ごとにスライドを切り替える
-    
+    resetSlideIntervals(); // 初期インターバル設定
+
     // 初回表示
     showSongSlides();
     showAlbumSlides();
-    
+
     // スライドショーのクリックイベントリスナーを設定
     document.querySelector('.songs-slideshow').addEventListener('click', toggleSongSlideshow);
     document.querySelector('.albums-slideshow').addEventListener('click', toggleAlbumSlideshow);
@@ -28,6 +33,8 @@ function updateSlidesVisibility() {
     });
 
     resetSlideIndexes(); // スライドのインデックスをリセット
+    updateSongDescription(songSlideIndex); // 即時更新
+    updateAlbumDescription(albumSlideIndex); // 即時更新
 }
 
 // スライドのインデックスをリセットする関数
@@ -58,6 +65,9 @@ function showSection(section, event) {
             }
             newActive.classList.add('active');
             updateSlidesVisibility();
+            resetSlideIntervals(); // インターバルをリセット
+            showSongSlides(); // スライド表示の即時更新
+            showAlbumSlides(); // スライド表示の即時更新
         }, 200);
     } else {
         newActive.classList.add('active');
@@ -67,16 +77,26 @@ function showSection(section, event) {
             newActive.classList.add('slide-right');
         }
         updateSlidesVisibility();
+        resetSlideIntervals(); // インターバルをリセット
+        showSongSlides(); // スライド表示の即時更新
+        showAlbumSlides(); // スライド表示の即時更新
     }
 
     document.querySelectorAll('.nav button').forEach(button => button.classList.remove('active'));
     event.target.classList.add('active');
 }
 
+function resetSlideIntervals() {
+    clearInterval(songSlideshowInterval);
+    clearInterval(albumSlideshowInterval);
+    songSlideshowInterval = setInterval(showSongSlides, 2000);
+    albumSlideshowInterval = setInterval(showAlbumSlides, 10000);
+}
+
 // スライドショーの表示を切り替える関数
 function showSongSlides() {
-    songSlides = Array.from(document.querySelectorAll('.songs-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
-    totalSongSlides = songSlides.length;
+    const songSlides = Array.from(document.querySelectorAll('.songs-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
+    const totalSongSlides = songSlides.length;
 
     if (totalSongSlides > 0) {
         songSlides.forEach((slide, index) => {
@@ -93,8 +113,8 @@ function showSongSlides() {
 
 // スライドショーの表示を切り替える関数
 function showAlbumSlides() {
-    albumSlides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
-    totalAlbumSlides = albumSlides.length;
+    const albumSlides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
+    const totalAlbumSlides = albumSlides.length;
 
     if (totalAlbumSlides > 0) {
         albumSlides.forEach((slide, index) => {
@@ -205,6 +225,9 @@ function toggleInfo() {
         setTimeout(() => {
             document.body.classList.remove('fade-in');
             updateSlidesVisibility(); // スライドショーの表示を更新
+            resetSlideIntervals(); // インターバルをリセット
+            showSongSlides(); // スライド表示の即時更新
+            showAlbumSlides(); // スライド表示の即時更新
         }, 1000);
     }, 1000);
 }
