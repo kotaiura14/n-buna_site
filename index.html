@@ -73,6 +73,10 @@
             <div id="songs" class="section">
                 <div class="songs-info">
                     <div class="songs-slideshow">
+                        <div class="navigation">
+                            <button class="navigation-button stop-slide" onclick="toggleSongSlideshow()">スライドを止める</button>
+                            <button class="navigation-button play-song">曲を聴く</button>
+                        </div>
                         <!-- n-bunaのSongs -->
                         <div class="slides n-buna-info">
                             <img src="images/pressongs/meryu.jpg" alt="メリュー" data-n-buna-song-description='{
@@ -176,6 +180,10 @@
             <div id="albums" class="section">
                 <div class="albums-info">
                     <div class="albums-slideshow">
+                        <div class="navigation">
+                            <button class="navigation-button stop-slide" onclick="toggleAlbumSlideshow()">スライドを止める</button>
+                            <button class="navigation-button play-song">曲を聴く</button>
+                        </div>
                         <!-- n-bunaのAlbums -->
                         <div class="slides n-buna-info">
                             <img src="images/vocaloalbum/curtaim.jpg" alt="カーテンコールが止む前に" data-n-buna-album-description='{
@@ -265,7 +273,7 @@
                             }'>
                             <img src="images/yorushika_album/erma.jpg" alt="エルマ" data-yorushika-album-description='{
                                 "title": "エルマ",
-                                "overview": "盗作と呼ばれるテーマを元に創作されたアルバム。",
+                                "overview": "だから僕は音楽を辞めたの続編となる作品。<br>前作の主人公の青年から送られてきた手紙に影響を受けたエルマが手掛けた楽曲",
                                 "tracks": [
                                     "01: 車窓",
                                     "02: 憂一乗",

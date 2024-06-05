@@ -7,15 +7,11 @@ let albumSlideshowPlaying = true;
 
 document.addEventListener('DOMContentLoaded', () => {
     updateSlidesVisibility(); // スライドショーの表示を初期化
-    resetSlideIntervals(); // 初期インターバル設定
+    startSlideIntervals(); // 初期インターバル設定
 
     // 初回表示
     showSongSlides();
     showAlbumSlides();
-
-    // スライドショーのクリックイベントリスナーを設定
-    document.querySelector('.songs-slideshow').addEventListener('click', toggleSongSlideshow);
-    document.querySelector('.albums-slideshow').addEventListener('click', toggleAlbumSlideshow);
 
     // 背景スライドショーの設定
     let slides = document.querySelectorAll('.background-slideshow');
@@ -29,9 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides[currentSlide].classList.add('active');
     setInterval(showNextSlide, 5000); // 5秒ごとにスライドを切り替え
+
+    // スライドショーのクリックイベントリスナーを設定
+    document.querySelector('.songs-slideshow .stop-slide').addEventListener('click', toggleSongSlideshow);
+    document.querySelector('.albums-slideshow .stop-slide').addEventListener('click', toggleAlbumSlideshow);
 });
 
-// スライドの表示を更新する関数
 function updateSlidesVisibility() {
     const artistName = document.getElementById('artist-name').textContent.trim();
     const isNBuna = artistName === 'n-buna';
@@ -50,13 +49,11 @@ function updateSlidesVisibility() {
     updateAlbumDescription(albumSlideIndex); // 即時更新
 }
 
-// スライドのインデックスをリセットする関数
 function resetSlideIndexes() {
     songSlideIndex = 0;
     albumSlideIndex = 0;
 }
 
-// セクションを表示する関数
 function showSection(section, event) {
     if (event) event.preventDefault();
 
@@ -78,7 +75,7 @@ function showSection(section, event) {
             }
             newActive.classList.add('active');
             updateSlidesVisibility();
-            resetSlideIntervals(); // インターバルをリセット
+            startSlideIntervals(); // スライドショーを再開
             showSongSlides(); // スライド表示の即時更新
             showAlbumSlides(); // スライド表示の即時更新
         }, 200);
@@ -90,7 +87,7 @@ function showSection(section, event) {
             newActive.classList.add('slide-right');
         }
         updateSlidesVisibility();
-        resetSlideIntervals(); // インターバルをリセット
+        startSlideIntervals(); // スライドショーを再開
         showSongSlides(); // スライド表示の即時更新
         showAlbumSlides(); // スライド表示の即時更新
     }
@@ -99,14 +96,24 @@ function showSection(section, event) {
     event.target.classList.add('active');
 }
 
-function resetSlideIntervals() {
-    clearInterval(songSlideshowInterval);
-    clearInterval(albumSlideshowInterval);
-    songSlideshowInterval = setInterval(showSongSlides, 2000);
-    albumSlideshowInterval = setInterval(showAlbumSlides, 10000);
+function startSlideIntervals() {
+    if (!songSlideshowPlaying) {
+        songSlideshowPlaying = true;
+        songSlideshowInterval = setInterval(showSongSlides, 2000);
+        document.querySelector('.songs-slideshow .stop-slide').textContent = "スライドを止める";
+    }
+    if (!albumSlideshowPlaying) {
+        albumSlideshowPlaying = true;
+        albumSlideshowInterval = setInterval(showAlbumSlides, 10000);
+        document.querySelector('.albums-slideshow .stop-slide').textContent = "スライドを止める";
+    }
 }
 
-// スライドショーの表示を切り替える関数
+function stopSlideIntervals() {
+    clearInterval(songSlideshowInterval);
+    clearInterval(albumSlideshowInterval);
+}
+
 function showSongSlides() {
     const songSlides = Array.from(document.querySelectorAll('.songs-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
     const totalSongSlides = songSlides.length;
@@ -124,7 +131,6 @@ function showSongSlides() {
     }
 }
 
-// スライドショーの表示を切り替える関数
 function showAlbumSlides() {
     const albumSlides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
     const totalAlbumSlides = albumSlides.length;
@@ -142,7 +148,6 @@ function showAlbumSlides() {
     }
 }
 
-// 曲の説明を更新する関数
 function updateSongDescription(index) {
     const slides = Array.from(document.querySelectorAll('.songs-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
     let description;
@@ -164,7 +169,6 @@ function updateSongDescription(index) {
     }
 }
 
-// アルバムの説明を更新する関数
 function updateAlbumDescription(index) {
     const slides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
     let description;
@@ -203,27 +207,32 @@ function updateAlbumDescription(index) {
     }
 }
 
-// 曲のスライドショーの再生/停止を切り替える関数
-function toggleSongSlideshow() {
+function toggleSongSlideshow(event) {
+    event.stopPropagation(); // クリックイベントのバブルを防止
     songSlideshowPlaying = !songSlideshowPlaying;
+    const button = event.target;
     if (songSlideshowPlaying) {
         songSlideshowInterval = setInterval(showSongSlides, 2000);
+        button.textContent = "スライドを止める";
     } else {
         clearInterval(songSlideshowInterval);
+        button.textContent = "スライドを再開する";
     }
 }
 
-// アルバムのスライドショーの再生/停止を切り替える関数
-function toggleAlbumSlideshow() {
+function toggleAlbumSlideshow(event) {
+    event.stopPropagation(); // クリックイベントのバブルを防止
     albumSlideshowPlaying = !albumSlideshowPlaying;
+    const button = event.target;
     if (albumSlideshowPlaying) {
         albumSlideshowInterval = setInterval(showAlbumSlides, 10000);
+        button.textContent = "スライドを止める";
     } else {
         clearInterval(albumSlideshowInterval);
+        button.textContent = "スライドを再開する";
     }
 }
 
-// アーティスト情報を切り替える関数
 function toggleInfo() {
     document.body.classList.add('fade-out');
     setTimeout(() => {
@@ -250,7 +259,7 @@ function toggleInfo() {
         setTimeout(() => {
             document.body.classList.remove('fade-in');
             updateSlidesVisibility(); // スライドショーの表示を更新
-            resetSlideIntervals(); // インターバルをリセット
+            startSlideIntervals(); // インターバルを再開
             showSongSlides(); // スライド表示の即時更新
             showAlbumSlides(); // スライド表示の即時更新
         }, 1000);
