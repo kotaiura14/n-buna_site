@@ -2,8 +2,8 @@ let songSlideshowInterval;
 let albumSlideshowInterval;
 let songSlideIndex = 0;
 let albumSlideIndex = 0;
-let songSlideshowPlaying = true;
-let albumSlideshowPlaying = true;
+let songSlideshowPlaying = false;
+let albumSlideshowPlaying = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     updateSlidesVisibility(); // スライドショーの表示を初期化
@@ -238,6 +238,7 @@ function toggleInfo() {
     setTimeout(() => {
         let artistName = document.getElementById('artist-name');
         let artistImage = document.getElementById('artist-image');
+        let toggleButton = document.getElementById('toggle-button');
         let sections = ['artist', 'songs', 'albums'];
         sections.forEach(section => {
             let nBunaSection = document.querySelectorAll(`#${section} .n-buna-info`);
@@ -245,15 +246,28 @@ function toggleInfo() {
             nBunaSection.forEach(item => item.style.display = artistName.textContent.trim() === 'n-buna' ? 'none' : 'block');
             yorushikaSection.forEach(item => item.style.display = artistName.textContent.trim() === 'n-buna' ? 'block' : 'none');
         });
+
         if (artistName.textContent.trim() === 'n-buna') {
             artistName.textContent = 'ヨルシカ';
             artistImage.style.backgroundImage = "url('images/artist/yorushika.jpg')";
             document.body.style.backgroundColor = "#ffe4e1";
+            toggleButton.textContent = 'n-bunaへ';
+
+            // スライドインデックスをリセットし、ヨルシカの最初のスライドを表示
+            showSpecificSlide('songs-slideshow', 0, 'yorushika-info');
+            showSpecificSlide('albums-slideshow', 0, 'yorushika-info');
+
         } else {
             artistName.textContent = 'n-buna';
             artistImage.style.backgroundImage = "url('images/artist/tako.jpg')";
             document.body.style.backgroundColor = "#d3f8e2";
+            toggleButton.textContent = 'ヨルシカへ';
+
+            // スライドインデックスをリセットし、n-bunaの最初のスライドを表示
+            showSpecificSlide('songs-slideshow', 0, 'n-buna-info');
+            showSpecificSlide('albums-slideshow', 0, 'n-buna-info');
         }
+
         document.body.classList.remove('fade-out');
         document.body.classList.add('fade-in');
         setTimeout(() => {
@@ -264,4 +278,16 @@ function toggleInfo() {
             showAlbumSlides(); // スライド表示の即時更新
         }, 1000);
     }, 1000);
+}
+
+function showSpecificSlide(slideshowClass, slideIndex, infoClass) {
+    const slides = document.querySelectorAll(`.${slideshowClass} .${infoClass} img`);
+    slides.forEach((slide, index) => {
+        slide.style.opacity = index === slideIndex ? '1' : '0';
+    });
+    if (slideshowClass === 'songs-slideshow') {
+        updateSongDescription(slideIndex);
+    } else if (slideshowClass === 'albums-slideshow') {
+        updateAlbumDescription(slideIndex);
+    }
 }
