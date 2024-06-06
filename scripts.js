@@ -238,6 +238,7 @@ function toggleInfo() {
     setTimeout(() => {
         let artistName = document.getElementById('artist-name');
         let artistImage = document.getElementById('artist-image');
+        let toggleButton = document.getElementById('toggle-button');
         let sections = ['artist', 'songs', 'albums'];
         sections.forEach(section => {
             let nBunaSection = document.querySelectorAll(`#${section} .n-buna-info`);
@@ -249,10 +250,12 @@ function toggleInfo() {
             artistName.textContent = 'ヨルシカ';
             artistImage.style.backgroundImage = "url('images/artist/yorushika.jpg')";
             document.body.style.backgroundColor = "#ffe4e1";
+            toggleButton.textContent = 'n-bunaへ';
         } else {
             artistName.textContent = 'n-buna';
             artistImage.style.backgroundImage = "url('images/artist/tako.jpg')";
             document.body.style.backgroundColor = "#d3f8e2";
+            toggleButton.textContent = 'ヨルシカへ';
         }
         document.body.classList.remove('fade-out');
         document.body.classList.add('fade-in');
@@ -265,3 +268,4 @@ function toggleInfo() {
         }, 1000);
     }, 1000);
 }
+
