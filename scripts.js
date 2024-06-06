@@ -162,12 +162,19 @@ function updateSongDescription(index) {
         document.getElementById('release-date').innerText = description.releaseDate ? `投稿日：${description.releaseDate}` : 'N/A';
         document.getElementById('song-composer').innerText = description.composer ? `作曲：${description.composer}` : 'N/A';
         document.getElementById('song-arranger').innerText = description.arranger ? `編曲：${description.arranger}` : 'N/A';
-        document.getElementById('song-illustration').innerText = description.illustration ? `イラスト：${description.illustration}` : 'N/A';
+
+        if (description.musicVideoDirector) {
+            document.getElementById('song-illustration').innerText = description.musicVideoDirector ? `MV：${description.musicVideoDirector}` : 'N/A';
+        } else {
+            document.getElementById('song-illustration').innerText = description.illustration ? `イラスト：${description.illustration}` : 'N/A';
+        }
+
         document.getElementById('song-vocals').innerText = description.vocals ? `唄：${description.vocals}` : 'N/A';
         document.getElementById('author-comment').innerText = description.authorComment ? `作者コメント：${description.authorComment}` : 'N/A';
         document.getElementById('site-comment').innerHTML = description.siteComment ? `サイト作者コメント：${description.siteComment}` : 'N/A';
     }
 }
+
 
 function updateAlbumDescription(index) {
     const slides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
