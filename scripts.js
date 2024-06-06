@@ -2,8 +2,8 @@ let songSlideshowInterval;
 let albumSlideshowInterval;
 let songSlideIndex = 0;
 let albumSlideIndex = 0;
-let songSlideshowPlaying = true;
-let albumSlideshowPlaying = true;
+let songSlideshowPlaying = false;
+let albumSlideshowPlaying = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     updateSlidesVisibility(); // スライドショーの表示を初期化
