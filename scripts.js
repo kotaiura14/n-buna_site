@@ -120,10 +120,10 @@ function showSongSlides() {
 
     if (totalSongSlides > 0) {
         songSlides.forEach((slide, index) => {
-            slide.style.opacity = '0';
+            slide.classList.remove('active');
         });
 
-        songSlides[songSlideIndex].style.opacity = '1';
+        songSlides[songSlideIndex].classList.add('active');
 
         updateSongDescription(songSlideIndex);
 
@@ -137,10 +137,10 @@ function showAlbumSlides() {
 
     if (totalAlbumSlides > 0) {
         albumSlides.forEach((slide, index) => {
-            slide.style.opacity = '0';
+            slide.classList.remove('active');
         });
 
-        albumSlides[albumSlideIndex].style.opacity = '1';
+        albumSlides[albumSlideIndex].classList.add('active');
 
         updateAlbumDescription(albumSlideIndex);
 
@@ -174,7 +174,6 @@ function updateSongDescription(index) {
         document.getElementById('site-comment').innerHTML = description.siteComment ? `サイト作者コメント：${description.siteComment}` : 'N/A';
     }
 }
-
 
 function updateAlbumDescription(index) {
     const slides = Array.from(document.querySelectorAll('.albums-slideshow .slides img')).filter(slide => slide.parentElement.style.display !== 'none');
@@ -290,7 +289,10 @@ function toggleInfo() {
 function showSpecificSlide(slideshowClass, slideIndex, infoClass) {
     const slides = document.querySelectorAll(`.${slideshowClass} .${infoClass} img`);
     slides.forEach((slide, index) => {
-        slide.style.opacity = index === slideIndex ? '1' : '0';
+        slide.classList.remove('active');
+        if (index === slideIndex) {
+            slide.classList.add('active');
+        }
     });
     if (slideshowClass === 'songs-slideshow') {
         updateSongDescription(slideIndex);
