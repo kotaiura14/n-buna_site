@@ -99,7 +99,7 @@ function showSection(section, event) {
 function startSlideIntervals() {
     if (!songSlideshowPlaying) {
         songSlideshowPlaying = true;
-        songSlideshowInterval = setInterval(showSongSlides, 2000);
+        songSlideshowInterval = setInterval(showSongSlides, 5000);
         document.querySelector('.songs-slideshow .stop-slide').textContent = "スライドを止める";
     }
     if (!albumSlideshowPlaying) {
@@ -170,7 +170,7 @@ function updateSongDescription(index) {
         }
 
         document.getElementById('song-vocals').innerText = description.vocals ? `唄：${description.vocals}` : 'N/A';
-        document.getElementById('author-comment').innerText = description.authorComment ? `作者コメント：${description.authorComment}` : 'N/A';
+        document.getElementById('author-comment').innerHTML = description.authorComment ? `作者コメント：${description.authorComment}` : ' ';
         document.getElementById('site-comment').innerHTML = description.siteComment ? `サイト作者コメント：${description.siteComment}` : 'N/A';
     }
 }
