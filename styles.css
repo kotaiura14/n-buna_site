@@ -24,9 +24,7 @@ body {
     transition: transform 0.4s ease;
 }
 
-.container:hover {
-    transform: scale(1.02);
-}
+
 
 .header {
     display: flex;
@@ -118,7 +116,14 @@ body {
     height: 100%;
     position: absolute;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1s ease, transform 1s ease;
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+}
+
+.slides img.active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 
 /* ナビゲーションのスタイル */
@@ -426,4 +431,19 @@ body {
 
 .background-slideshow.active {
     opacity: 1;
+}
+
+/* 追加部分 */
+@keyframes panpan {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+#panpan {
+    display: inline-block;
+    animation: panpan 0.5s infinite;
 }
